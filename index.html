@@ -1,0 +1,3787 @@
+<!DOCTYPE html>
+
+<html lang="tr">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="Bora Şenel'in yapay zekâ, yazılım geliştirme, kalite güvencesi, veri analizi ve Product Owner / ürün yönetimi yönelimini bir araya getiren kişisel portfolyosu." name="description"/>
+<meta content="#f4f2ed" name="theme-color"/>
+<title>Bora Şenel | AI, Yazılım, QA, Veri &amp; Product Portfolio</title>
+<style>
+:root {
+  --bg: #f3f1eb;
+  --surface: #f8f7f3;
+  --surface-2: #e8e5dd;
+  --ink: #151515;
+  --muted: #686861;
+  --line: rgba(21, 21, 21, .14);
+  --accent: #5d62ff;
+  --accent-soft: #dfe0ff;
+  --dark: #141419;
+  --dark-soft: #202027;
+  --white: #f7f6f1;
+  --radius: 28px;
+  --shell: min(1220px, calc(100vw - 48px));
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+a { color: inherit; text-decoration: none; }
+button, a { -webkit-tap-highlight-color: transparent; }
+.shell { width: var(--shell); margin-inline: auto; }
+.noise { position: fixed; inset: 0; pointer-events: none; z-index: 100; opacity: .04; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 160 160' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.45'/%3E%3C/svg%3E"); mix-blend-mode: multiply; }
+
+.site-header {
+  width: var(--shell); height: 84px; margin: 0 auto; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center;
+  position: sticky; top: 0; z-index: 50; backdrop-filter: blur(16px); background: color-mix(in srgb, var(--bg) 82%, transparent); border-bottom: 1px solid var(--line);
+}
+.brand { display: flex; align-items: center; gap: 12px; font-weight: 700; }
+.brand-mark { width: 38px; height: 38px; border-radius: 50%; background: var(--ink); color: var(--bg); display: grid; place-items: center; font-size: 12px; letter-spacing: -.04em; }
+.brand-name { font-size: 15px; }
+.nav { display: flex; gap: 28px; font-size: 13px; }
+.nav a { color: var(--muted); transition: color .2s ease; }
+.nav a:hover { color: var(--ink); }
+.header-actions { justify-self: end; display: flex; align-items: center; gap: 10px; }
+.menu-toggle { display: none; }
+
+.button { display: inline-flex; align-items: center; justify-content: center; gap: 18px; border-radius: 999px; padding: 15px 22px; font-weight: 650; font-size: 13px; transition: transform .25s ease, background .25s ease; }
+.button:hover { transform: translateY(-2px); }
+.button-primary { background: var(--accent); color: white; }
+.button-ghost { border: 1px solid var(--line); }
+.button-dark { background: var(--ink); color: var(--bg); }
+.button-small { padding: 11px 16px; }
+
+.hero { min-height: 720px; display: grid; grid-template-columns: 1.1fr .9fr; gap: 80px; align-items: center; padding: 82px 0 70px; }
+.availability { display: inline-flex; align-items: center; gap: 8px; font-size: 12px; padding: 8px 12px; border: 1px solid var(--line); border-radius: 999px; margin-bottom: 28px; }
+.pulse { width: 7px; height: 7px; border-radius: 50%; background: #45ad65; box-shadow: 0 0 0 5px rgba(69,173,101,.12); }
+.kicker, .eyebrow { margin: 0 0 22px; font-size: 11px; letter-spacing: .18em; font-weight: 800; text-transform: uppercase; color: var(--accent); }
+.hero h1 { max-width: 770px; font-size: clamp(50px, 6.6vw, 92px); line-height: .93; letter-spacing: -.065em; margin: 0; font-weight: 720; }
+.hero h1 em { font-family: Georgia, serif; font-weight: 400; color: var(--accent); }
+.hero-lead { max-width: 680px; margin: 34px 0 0; color: var(--muted); line-height: 1.72; font-size: 17px; }
+.hero-actions { display: flex; gap: 12px; margin-top: 32px; }
+.hero-visual { position: relative; min-height: 540px; display: grid; place-items: center; }
+.portrait-card { width: min(410px, 88%); aspect-ratio: .82; border-radius: 34px; background: linear-gradient(145deg, #6c71ff 0%, #454ad2 48%, #141419 100%); color: white; position: relative; padding: 26px; overflow: hidden; box-shadow: 0 32px 80px rgba(35,35,58,.24); transform: rotate(2.3deg); }
+.portrait-card::before { content:""; position:absolute; width:420px; height:420px; border-radius:50%; background: radial-gradient(circle, rgba(255,255,255,.34), rgba(255,255,255,0) 64%); top:-150px; right:-160px; }
+.portrait-card::after { content:""; position:absolute; inset:0; background: repeating-linear-gradient(90deg, transparent 0 34px, rgba(255,255,255,.055) 35px), repeating-linear-gradient(0deg, transparent 0 34px, rgba(255,255,255,.045) 35px); }
+.portrait-topline, .portrait-meta, .monogram { position: relative; z-index: 2; }
+.portrait-topline { display:flex; justify-content:space-between; font-size:9px; letter-spacing:.13em; opacity:.7; }
+.monogram { position:absolute; inset:0; display:grid; place-items:center; font-size:142px; letter-spacing:-.12em; font-weight:800; transform:translateX(-8px); }
+.portrait-meta { position:absolute; left:26px; right:26px; bottom:26px; display:grid; grid-template-columns:1fr 1fr; gap:8px; }
+.portrait-meta > div { background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.16); backdrop-filter:blur(10px); padding:14px; border-radius:16px; }
+.meta-label { display:block; font-size:9px; text-transform:uppercase; letter-spacing:.12em; opacity:.65; margin-bottom:4px; }
+.portrait-meta strong { font-size:13px; }
+.orbit { position:absolute; border:1px solid var(--line); border-radius:50%; }
+.orbit-one { width:500px; height:500px; }
+.orbit-two { width:380px; height:380px; }
+.floating-chip { position:absolute; z-index:3; padding:12px 16px; border:1px solid var(--line); border-radius:999px; background:var(--surface); box-shadow:0 12px 34px rgba(0,0,0,.08); font-size:12px; font-weight:700; }
+.chip-one { left:0; top:110px; transform:rotate(-5deg); }
+.chip-two { right:-18px; bottom:120px; transform:rotate(4deg); }
+
+.signal-strip { display:grid; grid-template-columns:repeat(4,1fr); border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
+.signal { padding:24px 18px; position:relative; border-right:1px solid var(--line); }
+.signal:last-child { border-right:0; }
+.signal > span { display:block; font-size:9px; color:var(--muted); margin-bottom:16px; }
+.signal strong { display:block; font-size:22px; letter-spacing:-.03em; }
+.signal small { display:block; color:var(--muted); margin-top:5px; font-size:11px; }
+
+.section { padding: 140px 0; scroll-margin-top: 80px; }
+.section-heading { margin-bottom: 70px; }
+.section-heading h2 { margin:0; font-size:clamp(46px,5.6vw,76px); line-height:.98; letter-spacing:-.055em; font-weight:690; }
+.section-heading h2 span, .contact-section h2 span, .recommendation-intro h2 span { color:var(--muted); font-family:Georgia,serif; font-weight:400; font-style:italic; }
+.split-heading { display:grid; grid-template-columns:1fr 380px; gap:50px; align-items:end; }
+.section-note { color:var(--muted); font-size:14px; line-height:1.7; margin:0; }
+.about-grid { display:grid; grid-template-columns:320px 1fr; gap:90px; align-items:start; }
+.sticky-card { position:sticky; top:120px; }
+.profile-panel { border-top:1px solid var(--ink); padding-top:22px; }
+.profile-name { font-size:27px; font-weight:720; letter-spacing:-.04em; }
+.profile-panel > p { color:var(--muted); line-height:1.55; font-size:13px; margin:10px 0 28px; }
+.profile-list { margin:0; }
+.profile-list div { display:flex; justify-content:space-between; gap:18px; padding:13px 0; border-top:1px solid var(--line); }
+.profile-list dt { color:var(--muted); font-size:11px; }
+.profile-list dd { margin:0; font-size:11px; text-align:right; }
+.profile-links { display:flex; gap:20px; padding-top:22px; font-size:12px; font-weight:700; }
+.big-copy { font-size:clamp(25px,3.1vw,42px); line-height:1.2; letter-spacing:-.035em; margin:0 0 74px; }
+.timeline { border-top:1px solid var(--ink); }
+.timeline-item { display:grid; grid-template-columns:160px 1fr; gap:38px; padding:30px 0; border-bottom:1px solid var(--line); }
+.timeline-date { font-size:11px; color:var(--muted); padding-top:4px; }
+.timeline-item h3 { margin:0 0 10px; font-size:17px; }
+.timeline-item h3 span { font-weight:450; color:var(--muted); }
+.timeline-item p { margin:0; max-width:680px; color:var(--muted); font-size:13px; line-height:1.65; }
+.education-item { background:color-mix(in srgb, var(--accent-soft) 45%, transparent); padding-inline:18px; }
+
+.section-work { background:var(--surface); }
+.projects { display:grid; grid-template-columns:1fr 1fr; gap:28px; }
+.project { border:1px solid var(--line); border-radius:var(--radius); overflow:hidden; background:var(--bg); }
+.project-featured { grid-column:1/-1; display:grid; grid-template-columns:1.08fr .92fr; }
+.project-featured .project-visual { min-height:570px; }
+.project-visual { min-height:360px; position:relative; overflow:hidden; display:grid; place-items:center; }
+.visual-label { position:absolute; left:20px; bottom:18px; font-size:9px; letter-spacing:.14em; font-weight:800; background:rgba(255,255,255,.8); color:#151515; padding:8px 10px; border-radius:999px; backdrop-filter:blur(8px); }
+.ai-visual { background:linear-gradient(135deg,#171722,#26265b 52%,#777cff); }
+.visual-grid { position:absolute; inset:0; opacity:.2; background-image:linear-gradient(rgba(255,255,255,.15) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.15) 1px,transparent 1px); background-size:42px 42px; }
+.terminal-card { width:70%; padding:22px; border:1px solid rgba(255,255,255,.18); border-radius:22px; background:rgba(17,17,25,.72); color:white; box-shadow:0 24px 70px rgba(0,0,0,.28); transform:rotate(-4deg); }
+.terminal-row { display:grid; grid-template-columns:70px 1fr; gap:14px; font-size:12px; padding:14px 0; border-bottom:1px solid rgba(255,255,255,.1); }
+.terminal-row span { color:#9da0ff; font-size:10px; }
+.terminal-row b { font-weight:500; }
+.terminal-row.response { opacity:.72; }
+.terminal-dots { display:flex; gap:6px; padding-top:16px; }
+.terminal-dots i { width:7px; height:7px; border-radius:50%; background:#7b80ff; }
+.survey-visual { background:linear-gradient(145deg,#d6f0e4,#a8ddc8); grid-template-columns:1fr 1fr; gap:26px; padding:60px; }
+.chart-ring { width:150px; height:150px; border-radius:50%; background:conic-gradient(#144f3c 0 68%,rgba(255,255,255,.55) 68%); display:grid; place-items:center; position:relative; color:#144f3c; font-weight:800; font-size:28px; }
+.chart-ring::after { content:""; position:absolute; width:108px; height:108px; border-radius:50%; background:#c6eadb; }
+.chart-ring span { position:relative; z-index:1; }
+.mini-bars { height:170px; display:flex; gap:10px; align-items:end; }
+.mini-bars i { width:20px; height:var(--h); background:#174f3d; border-radius:6px 6px 0 0; opacity:.8; }
+.ml-visual { background:#19191d; padding:60px; color:white; }
+.metric-card { position:absolute; left:18%; top:26%; width:190px; padding:22px; border-radius:18px; background:#f2f0e8; color:#161616; transform:rotate(-5deg); }
+.metric-card.second { left:auto; right:16%; top:42%; transform:rotate(5deg); background:#656aff; color:white; }
+.metric-card small,.metric-card span { display:block; opacity:.62; font-size:10px; }
+.metric-card strong { display:block; font-size:39px; letter-spacing:-.04em; margin:8px 0; }
+.parser-visual { background:linear-gradient(145deg,#f0d9b5,#e5b56c); grid-template-columns:auto auto auto; gap:26px; padding:50px; }
+.doc-stack { width:110px; height:140px; position:relative; display:grid; place-items:center; font-weight:800; }
+.doc-stack i { position:absolute; inset:0; background:#fff7e8; border:1px solid rgba(0,0,0,.12); border-radius:10px; box-shadow:0 10px 30px rgba(0,0,0,.12); }
+.doc-stack i:nth-child(1){transform:translate(-14px,12px) rotate(-7deg)}
+.doc-stack i:nth-child(2){transform:translate(12px,8px) rotate(6deg)}
+.doc-stack b { position:relative; z-index:2; }
+.flow-arrow { font-size:30px; }
+.csv-card { background:#21201d; color:white; padding:24px; border-radius:15px; font-weight:800; box-shadow:0 18px 40px rgba(0,0,0,.16); }
+.csv-card span { font-size:9px; font-weight:500; opacity:.6; }
+.project-copy { display:grid; grid-template-columns:48px 1fr; gap:18px; padding:28px; }
+.project-featured .project-copy { padding:54px 48px; align-content:end; }
+.project-index { color:var(--muted); font-size:10px; }
+.project-type { color:var(--accent); font-size:9px; letter-spacing:.14em; font-weight:800; margin:0 0 12px; }
+.project h3 { font-size:28px; letter-spacing:-.04em; margin:0 0 12px; }
+.project-featured h3 { font-size:42px; }
+.project-copy p:not(.project-type) { color:var(--muted); line-height:1.65; font-size:13px; margin:0; }
+.tags { display:flex; flex-wrap:wrap; gap:7px; margin-top:22px; }
+.tags span { font-size:9px; padding:7px 9px; border:1px solid var(--line); border-radius:999px; }
+
+.skill-grid { display:grid; grid-template-columns:1fr 1fr; border-top:1px solid var(--ink); }
+.skill-card { min-height:320px; padding:32px; border-right:1px solid var(--line); border-bottom:1px solid var(--line); display:flex; flex-direction:column; }
+.skill-card:nth-child(2n){border-right:0}
+.skill-no { font-size:10px; color:var(--muted); }
+.skill-card h3 { font-size:31px; letter-spacing:-.04em; margin:36px 0 12px; }
+.skill-card p { max-width:500px; color:var(--muted); line-height:1.65; font-size:13px; }
+.skill-tools { margin-top:auto; padding-top:30px; font-size:10px; letter-spacing:.08em; text-transform:uppercase; }
+
+.section-certificates { background:var(--surface-2); }
+.certificate-grid { display:grid; grid-template-columns:1fr 1fr; gap:18px; }
+.certificate-card { min-height:260px; border:1px solid var(--line); background:var(--surface); border-radius:22px; overflow:hidden; transition:transform .25s ease; }
+.certificate-card:hover { transform:translateY(-4px); }
+.certificate-image { display:grid; grid-template-columns:44% 56%; }
+.certificate-preview { min-height:260px; background-size:cover; background-position:center; }
+
+
+.certificate-info { padding:28px; display:flex; flex-direction:column; }
+.certificate-info small { font-size:9px; letter-spacing:.12em; color:var(--accent); font-weight:800; }
+.certificate-info h3 { font-size:23px; letter-spacing:-.035em; margin:16px 0 8px; }
+.certificate-info p { font-size:12px; color:var(--muted); line-height:1.5; margin:0; }
+.certificate-info > span { margin-top:auto; font-size:11px; font-weight:700; }
+.compact-cert { display:grid; grid-template-columns:150px 1fr; }
+.cert-symbol { display:grid; place-items:center; font-size:54px; font-weight:800; background:var(--dark); color:white; }
+.more-training { display:grid; grid-template-columns:190px 1fr; gap:40px; margin-top:32px; padding-top:24px; border-top:1px solid var(--line); font-size:12px; }
+.more-training span { color:var(--muted); }
+.more-training p { margin:0; line-height:1.7; }
+
+.writing-tabs { display:flex; gap:8px; margin-bottom:24px; }
+.tab { border:1px solid var(--line); background:transparent; color:var(--muted); border-radius:999px; padding:10px 15px; cursor:pointer; font-weight:700; font-size:11px; }
+.tab.active { background:var(--ink); color:var(--bg); }
+.writing-panel { display:none; border-top:1px solid var(--ink); }
+.writing-panel.active { display:block; }
+.writing-card { display:grid; grid-template-columns:1fr 120px; gap:40px; padding:32px 8px; border-bottom:1px solid var(--line); transition:padding .2s ease, background .2s ease; }
+.writing-card:hover { padding-inline:20px; background:color-mix(in srgb,var(--accent-soft) 30%,transparent); }
+.writing-type { font-size:9px; color:var(--accent); font-weight:800; letter-spacing:.12em; }
+.writing-card h3 { font-size:27px; letter-spacing:-.035em; margin:10px 0 9px; }
+.writing-card p { max-width:720px; margin:0; color:var(--muted); font-size:13px; line-height:1.65; }
+.writing-meta { align-self:center; justify-self:end; font-size:11px; color:var(--muted); }
+
+.recommendations { background:var(--dark); color:var(--white); }
+.recommendation-shell { display:grid; grid-template-columns:360px 1fr; gap:90px; }
+.eyebrow.light { color:#9ea1ff; }
+.recommendation-intro h2 { font-size:clamp(46px,5.5vw,74px); line-height:.96; letter-spacing:-.055em; margin:0; }
+.recommendation-intro h2 span { color:#88888e; }
+.recommendation-intro > p:last-child { color:#aaa9af; line-height:1.7; font-size:13px; margin-top:28px; }
+.recommendation-grid { display:grid; gap:12px; }
+.rec-card { border:1px solid rgba(255,255,255,.14); border-radius:24px; padding:26px; min-height:220px; transition:background .25s ease, transform .25s ease; }
+.rec-card:hover { background:rgba(255,255,255,.045); transform:translateX(6px); }
+.rec-top { display:flex; justify-content:space-between; font-size:9px; letter-spacing:.13em; color:#85858e; }
+.rec-card h3 { font-size:31px; margin:38px 0 10px; }
+.rec-card p { max-width:540px; color:#aaa9af; line-height:1.55; font-size:12px; }
+.empty-selection { margin-top:28px; padding-top:15px; border-top:1px solid rgba(255,255,255,.12); font-size:10px; color:#7f80ff; text-transform:uppercase; letter-spacing:.1em; }
+
+.contact-section { padding-bottom:100px; }
+.contact-grid { display:grid; grid-template-columns:1.1fr .9fr; gap:100px; align-items:end; }
+.contact-section h2 { margin:0; font-size:clamp(55px,7vw,98px); line-height:.92; letter-spacing:-.065em; }
+.contact-side > p { color:var(--muted); line-height:1.7; font-size:14px; max-width:480px; }
+.contact-mail { display:flex; justify-content:space-between; font-size:22px; font-weight:700; border-bottom:1px solid var(--ink); padding:22px 0; margin-top:28px; }
+.contact-links { display:flex; gap:24px; margin-top:22px; font-size:12px; }
+.footer { min-height:100px; border-top:1px solid var(--line); display:grid; grid-template-columns:1fr 1fr auto; align-items:center; gap:20px; font-size:10px; color:var(--muted); }
+.footer a { color:var(--ink); }
+
+.reveal { opacity:0; transform:translateY(18px); transition:opacity .7s ease,transform .7s ease; }
+.reveal.in-view { opacity:1; transform:none; }
+
+@media (max-width: 980px) {
+  :root { --shell:min(100% - 30px, 760px); }
+  .site-header { grid-template-columns:1fr auto; }
+  .nav,.header-actions { display:none; }
+  .menu-toggle { display:block; justify-self:end; border:1px solid var(--line); background:transparent; color:var(--ink); border-radius:999px; padding:10px 14px; }
+  .site-header.menu-open .nav { display:flex; position:absolute; top:84px; left:0; right:0; padding:24px; border-bottom:1px solid var(--line); background:var(--bg); flex-direction:column; gap:18px; }
+  .hero { grid-template-columns:1fr; gap:30px; padding-top:60px; }
+  .hero-visual { min-height:480px; }
+  .signal-strip { grid-template-columns:1fr 1fr; }
+  .signal:nth-child(2){border-right:0}.signal:nth-child(-n+2){border-bottom:1px solid var(--line)}
+  .split-heading,.about-grid,.recommendation-shell,.contact-grid { grid-template-columns:1fr; }
+  .about-grid { gap:60px; }
+  .sticky-card { position:relative; top:auto; }
+  .projects { grid-template-columns:1fr; }
+  .project-featured { grid-column:auto; grid-template-columns:1fr; }
+  .project-featured .project-visual { min-height:440px; }
+  .certificate-grid { grid-template-columns:1fr; }
+  .recommendation-shell { gap:60px; }
+}
+
+@media (max-width: 640px) {
+  :root { --shell:calc(100vw - 28px); --radius:22px; }
+  .brand-name { display:none; }
+  .hero { min-height:auto; padding:50px 0 60px; }
+  .hero h1 { font-size:49px; }
+  .hero-lead { font-size:15px; }
+  .hero-actions { flex-direction:column; align-items:stretch; }
+  .hero-visual { min-height:390px; }
+  .portrait-card { width:84%; }
+  .monogram { font-size:105px; }
+  .chip-one { left:2px; top:60px; }.chip-two { right:0; bottom:60px; }
+  .signal-strip { grid-template-columns:1fr 1fr; }
+  .signal { padding:18px 10px; }
+  .signal strong { font-size:17px; }
+  .section { padding:96px 0; }
+  .section-heading { margin-bottom:48px; }
+  .section-heading h2 { font-size:45px; }
+  .split-heading { gap:26px; }
+  .timeline-item { grid-template-columns:1fr; gap:12px; }
+  .big-copy { font-size:27px; margin-bottom:48px; }
+  .skill-grid { grid-template-columns:1fr; }
+  .skill-card { border-right:0; min-height:270px; }
+  .project-featured .project-visual,.project-visual { min-height:340px; }
+  .project-featured .project-copy { padding:30px 24px; }
+  .project-featured h3,.project h3 { font-size:29px; }
+  .survey-visual { padding:35px; }
+  .chart-ring { width:110px; height:110px; }
+  .chart-ring::after { width:78px; height:78px; }
+  .metric-card { left:7%; top:20%; width:155px; }.metric-card.second{right:7%;top:48%}
+  .parser-visual { padding:35px 20px; gap:12px; }
+  .certificate-image { grid-template-columns:1fr; }
+  .certificate-preview { min-height:190px; }
+  .compact-cert { grid-template-columns:90px 1fr; }
+  .cert-symbol { font-size:34px; }
+  .more-training { grid-template-columns:1fr; gap:10px; }
+  .writing-card { grid-template-columns:1fr; gap:18px; }
+  .writing-meta { justify-self:start; }
+  .recommendation-intro h2 { font-size:47px; }
+  .contact-section h2 { font-size:58px; }
+  .contact-mail { font-size:16px; }
+  .footer { grid-template-columns:1fr; padding:30px 0; }
+}
+
+</style>
+<style>
+:root{
+  --bg:#f5f3ee;
+  --panel:#ffffff;
+  --text:#111111;
+  --muted:#6e6e6e;
+  --line:rgba(17,17,17,.12);
+  --blue:#5b5cff;
+  --lime:#c8ff3d;
+  --dark:#111215;
+  --dark-2:#191a1f;
+  --radius:28px;
+}
+html{scroll-behavior:smooth}
+body{
+  background:
+    radial-gradient(circle at 15% 10%, rgba(91,92,255,.12), transparent 26%),
+    radial-gradient(circle at 85% 8%, rgba(200,255,61,.10), transparent 24%),
+    var(--bg)!important;
+  color:var(--text)!important;
+}
+body::before{
+  content:"";
+  position:fixed;inset:0;pointer-events:none;z-index:-1;
+  background-image:
+    linear-gradient(rgba(17,17,17,.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(17,17,17,.035) 1px, transparent 1px);
+  background-size:42px 42px;
+  mask-image:linear-gradient(to bottom,rgba(0,0,0,.7),transparent 70%);
+}
+.site-header, header{
+  backdrop-filter:blur(18px);
+  background:rgba(245,243,238,.76)!important;
+  border-bottom:1px solid rgba(17,17,17,.08)!important;
+}
+.hero{
+  min-height:88vh;
+  display:grid;
+  align-items:center;
+  position:relative;
+  overflow:hidden;
+}
+.hero::after{
+  content:"";
+  position:absolute;
+  width:430px;height:430px;border-radius:50%;
+  right:-140px;top:60px;
+  border:1px solid rgba(91,92,255,.25);
+  box-shadow:0 0 0 42px rgba(91,92,255,.05),0 0 0 86px rgba(200,255,61,.04);
+}
+.hero h1{
+  font-size:clamp(3.6rem,8vw,7.7rem)!important;
+  line-height:.92!important;
+  letter-spacing:-.065em!important;
+  max-width:980px!important;
+}
+.hero h1 em,.hero h1 span{
+  color:var(--blue)!important;
+  font-style:normal!important;
+}
+.hero p{font-size:1.12rem!important;max-width:720px}
+.eyebrow,.kicker,.section-kicker{
+  color:var(--blue)!important;
+  font-weight:800!important;
+  letter-spacing:.16em!important;
+}
+.btn-primary,.primary-button,.cta-primary{
+  background:var(--text)!important;color:white!important;
+  border-radius:999px!important;
+  padding:.95rem 1.35rem!important;
+  transition:.25s ease!important;
+}
+.btn-primary:hover,.primary-button:hover,.cta-primary:hover{
+  transform:translateY(-3px) rotate(-1deg);
+  background:var(--blue)!important;
+}
+.btn-secondary,.secondary-button{
+  border-radius:999px!important;
+  border:1px solid var(--line)!important;
+  background:rgba(255,255,255,.55)!important;
+}
+.section, section{position:relative}
+.section-title,h2{
+  letter-spacing:-.045em!important;
+}
+.card,.project-card,.skill-card,.cert-card,.article-card,.recommendation-card{
+  border-radius:var(--radius)!important;
+  border:1px solid var(--line)!important;
+  box-shadow:0 12px 40px rgba(17,17,17,.05)!important;
+}
+.timeline-item{
+  transition:.25s ease;
+  border-radius:22px;
+}
+.timeline-item:hover{
+  transform:translateX(8px);
+  background:rgba(91,92,255,.05);
+}
+.timeline-date{
+  color:var(--blue)!important;
+  font-weight:800!important;
+}
+.tag,.chip,.pill{
+  border-radius:999px!important;
+  background:rgba(91,92,255,.09)!important;
+  border:1px solid rgba(91,92,255,.18)!important;
+}
+footer{border-top:1px solid var(--line)!important}
+
+/* Energetic ticker */
+.energy-ticker{
+  overflow:hidden;
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+  padding:14px 0;
+  margin:28px 0 0;
+  background:var(--lime);
+  color:#111;
+  transform:rotate(-1deg) scale(1.01);
+}
+.energy-ticker .track{
+  display:flex;
+  gap:34px;
+  width:max-content;
+  animation:ticker 24s linear infinite;
+  font-weight:900;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+.energy-ticker span{white-space:nowrap}
+@keyframes ticker{to{transform:translateX(-50%)}}
+
+/* Dark project stage */
+.projects-dark{
+  background:var(--dark);
+  color:#fff;
+  border-radius:42px;
+  padding:clamp(34px,6vw,82px);
+  margin:50px auto;
+  overflow:hidden;
+}
+.projects-dark .section-title,
+.projects-dark h2,
+.projects-dark h3,
+.projects-dark p{color:#fff!important}
+.projects-dark .muted{color:#a8a8ad!important}
+.projects-dark .project-card{
+  background:linear-gradient(180deg,var(--dark-2),#111)!important;
+  border-color:rgba(255,255,255,.09)!important;
+  box-shadow:none!important;
+  transition:.3s ease;
+  overflow:hidden;
+}
+.projects-dark .project-card:hover{
+  transform:translateY(-10px) scale(1.01);
+  border-color:rgba(200,255,61,.35)!important;
+}
+.projects-dark .project-card::before{
+  content:"";
+  display:block;
+  height:8px;
+  background:linear-gradient(90deg,var(--blue),var(--lime));
+}
+.projects-dark a{color:var(--lime)!important}
+
+/* Skills as kinetic type */
+.skill-cloud{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  margin-top:28px;
+}
+.skill-cloud span{
+  font-size:clamp(1.05rem,2.2vw,1.9rem);
+  font-weight:800;
+  padding:12px 18px;
+  border:1px solid var(--line);
+  border-radius:999px;
+  background:rgba(255,255,255,.52);
+  transition:.22s ease;
+}
+.skill-cloud span:hover{
+  transform:translateY(-5px) rotate(-1.5deg);
+  background:var(--blue);
+  color:white;
+  border-color:transparent;
+}
+.skill-cloud span:nth-child(3n):hover{
+  background:var(--lime);color:#111;
+}
+
+/* Recommendations / personality */
+.reco-grid{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:18px;
+}
+.reco-panel{
+  min-height:250px;
+  padding:28px;
+  border-radius:30px;
+  position:relative;
+  overflow:hidden;
+  border:1px solid var(--line);
+}
+.reco-panel:nth-child(1){background:#fff}
+.reco-panel:nth-child(2){background:var(--blue);color:white}
+.reco-panel:nth-child(3){background:var(--lime);color:#111}
+.reco-panel .emoji{font-size:2.2rem}
+.reco-panel h3{font-size:2rem;margin:.7rem 0 .5rem}
+.reco-panel p{max-width:28ch}
+.reco-panel::after{
+  content:"↗";
+  position:absolute;right:24px;bottom:18px;
+  font-size:3.2rem;font-weight:800;opacity:.2;
+}
+
+/* Subtle reveal */
+.reveal{opacity:0;transform:translateY(22px);transition:.7s cubic-bezier(.2,.8,.2,1)}
+.reveal.visible{opacity:1;transform:none}
+
+@media(max-width:900px){
+  .reco-grid{grid-template-columns:1fr}
+  .projects-dark{border-radius:28px;padding:28px 18px}
+  .hero{min-height:auto;padding-top:96px}
+  .hero h1{font-size:clamp(3rem,15vw,5.4rem)!important}
+}
+</style>
+<style>
+/* =========================
+   V5 — LOWER HALF REDESIGN
+   Navbar + hero + about remain v3.
+   Everything below about gets a calmer, more structured visual system.
+   ========================= */
+
+.below-about-marker{
+  max-width:1200px;
+  margin:18px auto 0;
+  padding:18px 0;
+  display:flex;
+  justify-content:space-between;
+  gap:20px;
+  border-top:1px solid rgba(17,17,17,.16);
+  border-bottom:1px solid rgba(17,17,17,.16);
+  font-size:.74rem;
+  letter-spacing:.13em;
+  text-transform:uppercase;
+  color:#666;
+}
+.section-micro-label{
+  max-width:1200px;
+  margin:0 auto 26px;
+  font-size:.7rem;
+  font-weight:800;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:#5b5cff;
+}
+
+/* PROJECTS — light, spacious, alternating case-study cards */
+#work{
+  background:transparent!important;
+  color:#111!important;
+  border-radius:0!important;
+  padding:88px 0!important;
+  margin:0!important;
+  overflow:visible!important;
+}
+#work > .shell{
+  max-width:1200px;
+  margin:0 auto;
+}
+#work .section-heading{
+  margin-bottom:42px;
+}
+#work .section-heading h2,
+#work .section-heading p,
+#work h3,
+#work p{
+  color:inherit!important;
+}
+#work .projects{
+  display:grid;
+  gap:26px;
+}
+#work .project{
+  position:relative;
+  display:grid!important;
+  grid-template-columns:minmax(0,1.02fr) minmax(0,.98fr)!important;
+  align-items:stretch;
+  gap:0!important;
+  min-height:470px;
+  padding:0!important;
+  overflow:hidden;
+  border:1px solid rgba(17,17,17,.11)!important;
+  border-radius:30px!important;
+  background:#fff!important;
+  box-shadow:0 18px 60px rgba(17,17,17,.06)!important;
+  transition:transform .28s ease, box-shadow .28s ease;
+}
+#work .project:hover{
+  transform:translateY(-6px)!important;
+  box-shadow:0 26px 80px rgba(17,17,17,.10)!important;
+  border-color:rgba(91,92,255,.24)!important;
+}
+#work .project:nth-child(even) .project-visual{order:2}
+#work .project:nth-child(even) .project-copy{order:1}
+#work .project-visual{
+  min-height:470px!important;
+  border-radius:0!important;
+  border:0!important;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:
+    radial-gradient(circle at 30% 30%, rgba(91,92,255,.18), transparent 34%),
+    linear-gradient(145deg,#eef0ff,#e9e5dc)!important;
+}
+#work .project:nth-child(2) .project-visual{
+  background:linear-gradient(145deg,#ede8ff,#f6eee4)!important;
+}
+#work .project:nth-child(3) .project-visual{
+  background:linear-gradient(145deg,#e4edf2,#e8e6ff)!important;
+}
+#work .project:nth-child(4) .project-visual{
+  background:linear-gradient(145deg,#e9eee7,#efe8ff)!important;
+}
+#work .project-copy{
+  padding:48px!important;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+#work .project-copy h3{
+  font-size:clamp(2rem,3.1vw,3.35rem)!important;
+  line-height:1!important;
+  letter-spacing:-.05em!important;
+  margin:10px 0 18px!important;
+}
+#work .project-copy > p{
+  color:#626262!important;
+  line-height:1.7!important;
+  max-width:54ch;
+}
+#work .project-index,
+#work .project-type{
+  color:#5b5cff!important;
+}
+#work .tags span{
+  background:#f5f5f3!important;
+  color:#252525!important;
+  border:1px solid rgba(17,17,17,.08)!important;
+  border-radius:999px!important;
+}
+.project-seq{
+  position:absolute;
+  top:20px;
+  right:24px;
+  z-index:4;
+  font-size:4.4rem;
+  line-height:1;
+  font-weight:900;
+  letter-spacing:-.08em;
+  color:rgba(17,17,17,.07);
+  pointer-events:none;
+}
+
+/* SKILLS — structured bento, but not loud */
+#skills{
+  max-width:1200px!important;
+  margin:0 auto!important;
+  padding:92px 0!important;
+}
+#skills .section-heading{
+  margin-bottom:36px;
+}
+#skills .skill-grid{
+  display:grid!important;
+  grid-template-columns:repeat(12,1fr)!important;
+  gap:16px!important;
+}
+#skills .skill-card{
+  min-height:300px;
+  padding:30px!important;
+  border:1px solid rgba(17,17,17,.11)!important;
+  border-radius:26px!important;
+  background:rgba(255,255,255,.72)!important;
+  box-shadow:none!important;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  transition:transform .25s ease, background .25s ease;
+}
+#skills .skill-card:hover{
+  transform:translateY(-5px);
+  background:#fff!important;
+}
+#skills .skill-bento-1{grid-column:span 7}
+#skills .skill-bento-2{grid-column:span 5;background:#111!important;color:#fff!important}
+#skills .skill-bento-3{grid-column:span 5}
+#skills .skill-bento-4{grid-column:span 7;background:#e9eaff!important}
+#skills .skill-bento-2 p,
+#skills .skill-bento-2 .skill-tools{color:rgba(255,255,255,.72)!important}
+#skills .skill-card h3{
+  font-size:clamp(1.7rem,2.4vw,2.5rem)!important;
+  letter-spacing:-.04em;
+}
+#skills .skill-no{
+  font-size:.8rem!important;
+  letter-spacing:.12em;
+  opacity:.6;
+}
+#skills .skill-tools{
+  margin-top:28px;
+  font-size:.82rem;
+  letter-spacing:.04em;
+}
+
+/* CERTIFICATES — calm archive/list */
+#certificates{
+  padding:92px 0!important;
+  background:#f0eee8!important;
+}
+#certificates > .shell{max-width:1200px;margin:0 auto}
+#certificates .certificate-grid{
+  display:grid!important;
+  grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  gap:16px!important;
+}
+#certificates .certificate-card{
+  min-height:250px;
+  display:grid!important;
+  grid-template-columns:132px 1fr!important;
+  gap:24px!important;
+  padding:24px!important;
+  align-items:center;
+  border:1px solid rgba(17,17,17,.10)!important;
+  border-radius:24px!important;
+  background:#f8f7f3!important;
+  box-shadow:none!important;
+}
+#certificates .certificate-preview{
+  height:160px!important;
+  border-radius:16px!important;
+  overflow:hidden;
+  background:#fff!important;
+}
+#certificates .certificate-info h3{
+  font-size:1.45rem!important;
+  line-height:1.1!important;
+  letter-spacing:-.03em!important;
+}
+#certificates .compact-cert{
+  grid-template-columns:76px 1fr!important;
+  min-height:170px;
+}
+#certificates .more-training{
+  margin-top:20px;
+  border-top:1px solid rgba(17,17,17,.12);
+  padding-top:20px;
+}
+
+/* WRITING — cleaner magazine cards with one strong featured rhythm */
+#writing{
+  max-width:1200px!important;
+  margin:0 auto!important;
+  padding:92px 0!important;
+}
+#writing .writing-tabs{
+  display:flex;
+  gap:8px;
+  margin:22px 0 28px;
+}
+#writing .tab{
+  border-radius:999px!important;
+  padding:10px 16px!important;
+  background:transparent!important;
+  border:1px solid rgba(17,17,17,.12)!important;
+}
+#writing .tab.active{
+  background:#111!important;
+  color:#fff!important;
+}
+#writing .writing-panel.active{
+  display:grid!important;
+  grid-template-columns:repeat(3,minmax(0,1fr))!important;
+  gap:16px!important;
+}
+#writing .writing-card{
+  min-height:330px;
+  padding:28px!important;
+  display:flex;
+  flex-direction:column;
+  border:1px solid rgba(17,17,17,.11)!important;
+  border-radius:24px!important;
+  background:#fff!important;
+  box-shadow:none!important;
+  transition:transform .25s ease;
+}
+#writing .writing-card:hover{transform:translateY(-5px)}
+#writing .writing-card:first-child{
+  background:#111!important;
+  color:#fff!important;
+}
+#writing .writing-card:first-child p,
+#writing .writing-card:first-child .writing-meta{color:rgba(255,255,255,.68)!important}
+#writing .writing-card h3{
+  font-size:1.8rem!important;
+  line-height:1.08!important;
+  letter-spacing:-.04em!important;
+}
+#writing .writing-card p{
+  margin-top:auto;
+  line-height:1.6;
+}
+
+/* RECOMMENDATIONS — personal, playful, controlled */
+#recommendations{
+  padding:92px 0!important;
+}
+#recommendations .recommendation-shell{
+  max-width:1200px!important;
+  padding:0!important;
+}
+#recommendations .recommendation-grid,
+#recommendations .reco-grid{
+  display:grid!important;
+  grid-template-columns:repeat(3,minmax(0,1fr))!important;
+  gap:16px!important;
+}
+#recommendations .rec-card{
+  min-height:390px!important;
+  padding:30px!important;
+  border-radius:28px!important;
+  border:1px solid rgba(17,17,17,.10)!important;
+  box-shadow:none!important;
+  position:relative;
+  overflow:hidden;
+  transition:transform .25s ease;
+}
+#recommendations .rec-card:hover{transform:translateY(-6px) rotate(-.4deg)}
+#recommendations .rec-style-1{background:#ece8ff!important}
+#recommendations .rec-style-2{background:#1a1a1d!important;color:#fff!important}
+#recommendations .rec-style-3{background:#e8eee6!important;color:#111!important}
+#recommendations .rec-card::after{
+  content:"";
+  position:absolute;
+  width:180px;height:180px;
+  border-radius:50%;
+  right:-70px;bottom:-70px;
+  border:28px solid currentColor;
+  opacity:.055;
+}
+#recommendations .rec-card h3{
+  font-size:2.4rem!important;
+  letter-spacing:-.045em!important;
+}
+#recommendations .rec-card p{
+  max-width:34ch;
+  line-height:1.65;
+}
+#recommendations .empty-selection{
+  margin-top:auto;
+  opacity:.65;
+}
+
+/* CONTACT — strong final panel */
+#contact{
+  max-width:1200px!important;
+  margin:0 auto 54px!important;
+  padding:54px!important;
+  border-radius:32px!important;
+  background:#5b5cff!important;
+  color:#fff!important;
+}
+#contact .section-micro-label{color:rgba(255,255,255,.62)!important;margin-left:0!important}
+#contact h2,
+#contact p,
+#contact a{color:inherit!important}
+#contact .contact-mail{
+  font-size:clamp(1.8rem,4vw,4.5rem)!important;
+  letter-spacing:-.055em!important;
+}
+#contact .contact-links a{
+  border-color:rgba(255,255,255,.35)!important;
+  border-radius:999px!important;
+}
+
+/* Responsive */
+@media(max-width:900px){
+  .below-about-marker,
+  #skills,
+  #writing,
+  #recommendations .recommendation-shell,
+  #work > .shell,
+  #certificates > .shell{
+    padding-left:18px!important;
+    padding-right:18px!important;
+  }
+  .below-about-marker{flex-direction:column;gap:6px}
+  #work .project{
+    grid-template-columns:1fr!important;
+    min-height:auto;
+  }
+  #work .project:nth-child(even) .project-visual,
+  #work .project:nth-child(even) .project-copy{order:initial}
+  #work .project-visual{min-height:320px!important}
+  #work .project-copy{padding:30px!important}
+  #skills .skill-grid{grid-template-columns:1fr!important}
+  #skills .skill-card{grid-column:auto!important;min-height:250px}
+  #certificates .certificate-grid{grid-template-columns:1fr!important}
+  #writing .writing-panel.active{grid-template-columns:1fr!important}
+  #recommendations .recommendation-grid,
+  #recommendations .reco-grid{grid-template-columns:1fr!important}
+  #contact{margin:18px!important;padding:34px 24px!important}
+}
+</style>
+<style>
+/* V6 targeted refinements */
+
+/* Skills: add project/product management; fix hover corruption on second card */
+#skills .skill-card{
+  transform:none!important;
+  overflow:visible!important;
+  isolation:isolate;
+}
+#skills .skill-card:hover{
+  transform:translateY(-4px)!important;
+  z-index:2!important;
+}
+#skills .skill-bento-2:hover{
+  background:#111!important;
+  color:#fff!important;
+}
+#skills .skill-bento-2:hover *{
+  color:inherit!important;
+}
+.project-management-stack{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-top:22px;
+}
+.project-management-stack span{
+  display:inline-flex;
+  align-items:center;
+  min-height:34px;
+  padding:7px 11px;
+  border-radius:999px;
+  border:1px solid rgba(17,17,17,.12);
+  background:rgba(255,255,255,.58);
+  font-size:.78rem;
+  font-weight:700;
+}
+#skills .skill-bento-2 .project-management-stack span{
+  color:#fff;
+  border-color:rgba(255,255,255,.18);
+  background:rgba(255,255,255,.08);
+}
+
+/* Certificates: true rectangular document previews */
+#certificates .certificate-grid{
+  grid-template-columns:repeat(2,minmax(0,1fr))!important;
+}
+#certificates .document-card{
+  grid-template-columns:220px 1fr!important;
+  align-items:start!important;
+  min-height:300px!important;
+}
+#certificates .document-preview{
+  width:220px!important;
+  height:155px!important;
+  aspect-ratio:1.414 / 1!important;
+  border-radius:14px!important;
+  overflow:hidden!important;
+  background:#fff!important;
+  box-shadow:0 12px 30px rgba(17,17,17,.09)!important;
+}
+#certificates .document-preview img{
+  width:100%!important;
+  height:100%!important;
+  object-fit:contain!important;
+  object-position:center!important;
+  background:#fff!important;
+  display:block!important;
+}
+#certificates .certificate-preview{
+  background-size:contain!important;
+  background-repeat:no-repeat!important;
+  background-position:center!important;
+}
+
+/* Writing: blog + articles always visible side by side */
+#writing .writing-split{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:22px;
+}
+#writing .writing-group{
+  min-width:0;
+}
+#writing .writing-group-title{
+  font-size:2rem!important;
+  letter-spacing:-.04em!important;
+  margin:0 0 16px!important;
+}
+#writing .writing-panel,
+#writing .writing-panel.active,
+#writing .writing-panel.always-visible{
+  display:grid!important;
+  grid-template-columns:1fr!important;
+  gap:14px!important;
+}
+#writing .writing-card{
+  min-height:250px!important;
+}
+#writing .writing-card:first-child{
+  background:#111!important;
+  color:#fff!important;
+}
+#writing .writing-card:first-child p,
+#writing .writing-card:first-child .writing-meta{
+  color:rgba(255,255,255,.68)!important;
+}
+
+/* Recommendations: exactly 3 books + 3 films, 45° standing cover objects */
+#recommendations .recommendation-library{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:28px;
+}
+.recommendation-column{
+  border:1px solid rgba(17,17,17,.11);
+  border-radius:28px;
+  padding:26px;
+  background:rgba(255,255,255,.7);
+}
+.recommendation-column-head{
+  display:flex;
+  align-items:baseline;
+  justify-content:space-between;
+  gap:20px;
+  padding-bottom:18px;
+  border-bottom:1px solid rgba(17,17,17,.11);
+}
+.recommendation-column-head h3{
+  font-size:2.7rem!important;
+  letter-spacing:-.05em!important;
+  margin:0!important;
+}
+.recommendation-index{
+  font-size:.74rem;
+  letter-spacing:.14em;
+  color:#5b5cff;
+  font-weight:800;
+}
+.media-recommendation{
+  display:grid;
+  grid-template-columns:170px 1fr;
+  gap:26px;
+  align-items:center;
+  min-height:245px;
+  padding:28px 0;
+  border-bottom:1px solid rgba(17,17,17,.10);
+}
+.media-recommendation:last-child{border-bottom:0}
+.media-cover{
+  width:120px;
+  height:174px;
+  margin:0 auto;
+  position:relative;
+  transform:perspective(900px) rotateY(-28deg) rotateX(3deg) rotateZ(-1deg);
+  transform-origin:center;
+  border-radius:8px 3px 3px 8px;
+  box-shadow:
+    16px 18px 28px rgba(17,17,17,.20),
+    inset -6px 0 0 rgba(255,255,255,.14);
+  transition:transform .28s ease, box-shadow .28s ease;
+  overflow:hidden;
+}
+.media-cover::before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:0;
+  width:8px;
+  height:100%;
+  background:rgba(0,0,0,.16);
+  z-index:2;
+}
+.media-cover::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  box-shadow:inset -10px 0 16px rgba(0,0,0,.10);
+  pointer-events:none;
+}
+.media-recommendation:hover .media-cover{
+  transform:perspective(900px) rotateY(-12deg) rotateX(1deg) translateY(-6px);
+  box-shadow:12px 22px 34px rgba(17,17,17,.22);
+}
+.dvd-cover{
+  width:128px;
+  height:180px;
+  border-radius:5px 2px 2px 5px;
+}
+.placeholder-cover{
+  display:flex;
+  align-items:flex-end;
+  padding:18px 14px;
+  background:
+    linear-gradient(145deg, rgba(91,92,255,.85), rgba(17,17,17,.96));
+  color:#fff;
+  font-weight:800;
+  font-size:.8rem;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+.movies-column .placeholder-cover{
+  background:
+    linear-gradient(145deg, #cfc4ff, #16161a);
+}
+.media-copy h4{
+  font-size:1.7rem!important;
+  margin:0 0 10px!important;
+  letter-spacing:-.04em!important;
+}
+.media-copy p{
+  margin:0;
+  color:#666;
+  line-height:1.65;
+}
+
+/* Contact extras */
+#contact .contact-links{
+  flex-wrap:wrap!important;
+}
+#contact .contact-links a{
+  white-space:nowrap;
+}
+
+@media(max-width:980px){
+  #certificates .certificate-grid{grid-template-columns:1fr!important}
+  #certificates .document-card{grid-template-columns:180px 1fr!important}
+  #certificates .document-preview{width:180px!important;height:128px!important}
+  #writing .writing-split{grid-template-columns:1fr!important}
+  #recommendations .recommendation-library{grid-template-columns:1fr!important}
+}
+@media(max-width:640px){
+  #certificates .document-card{grid-template-columns:1fr!important}
+  #certificates .document-preview{width:100%!important;height:auto!important;aspect-ratio:1.414/1!important}
+  .media-recommendation{grid-template-columns:120px 1fr;gap:18px}
+  .media-cover{width:92px;height:136px}
+  .dvd-cover{width:96px;height:140px}
+}
+</style>
+<style>
+#recommendations .book-author{
+  margin:-2px 0 12px;
+  font-size:.82rem;
+  font-weight:800;
+  letter-spacing:.04em;
+  color:#5b5cff;
+}
+</style><style>
+/* Complete certificate archive */
+#certificates{padding:92px 0!important;background:#f0eee8!important}
+#certificates>.shell{max-width:1200px;margin:0 auto}
+.certificate-summary-row{display:flex;flex-wrap:wrap;gap:10px;margin:4px 0 28px}
+.certificate-summary-row span{padding:9px 12px;border-radius:999px;border:1px solid rgba(17,17,17,.1);background:rgba(255,255,255,.54);font-size:.75rem;color:#666}
+.certificate-summary-row b{color:#111}
+.all-certificates-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.full-cert-card{display:flex;flex-direction:column;min-width:0;border:1px solid rgba(17,17,17,.11);border-radius:26px;background:#faf9f5;overflow:hidden;box-shadow:0 12px 42px rgba(17,17,17,.045);transition:transform .24s ease,box-shadow .24s ease}
+.full-cert-card:hover{transform:translateY(-5px);box-shadow:0 22px 55px rgba(17,17,17,.08)}
+.certificate-image-button{position:relative;width:100%;aspect-ratio:1.414/1;padding:0;border:0;border-bottom:1px solid rgba(17,17,17,.09);background:#e6e4dd;cursor:zoom-in;overflow:hidden}
+.certificate-image-button img{width:100%;height:100%;display:block;object-fit:contain;object-position:center;background:#fff;transition:transform .3s ease}
+.full-cert-card:hover .certificate-image-button img{transform:scale(1.018)}
+.certificate-zoom-label{position:absolute;right:13px;bottom:12px;padding:7px 10px;border-radius:999px;background:rgba(17,17,17,.82);color:#fff;font-size:.67rem;font-weight:800;backdrop-filter:blur(8px)}
+.full-cert-copy{display:flex;flex-direction:column;flex:1;padding:24px}
+.full-cert-topline{display:flex;justify-content:space-between;gap:14px;margin-bottom:18px;color:#5b5cff;font-size:.66rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase}
+.full-cert-copy h3{margin:0 0 6px;font-size:1.55rem;line-height:1.08;letter-spacing:-.035em}
+.certificate-issuer{margin:0 0 16px;color:#777;font-size:.82rem;font-weight:750}
+.certificate-purpose{margin:0 0 18px;line-height:1.64;color:#4f4f4f;font-size:.91rem}
+.certificate-skills{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:16px}
+.certificate-skills span{padding:6px 9px;border:1px solid rgba(91,92,255,.15);border-radius:999px;background:#eeefff;color:#4849ce;font-size:.69rem;font-weight:800}
+.certificate-caveat{margin:0 0 16px;padding:11px 12px;border-left:3px solid #d8a31b;background:#fff7db;color:#6b591e;font-size:.76rem;line-height:1.5}
+.certificate-open{margin-top:auto;align-self:flex-start;text-decoration:none;font-size:.8rem;font-weight:900;color:#111;border-bottom:1px solid #111;padding-bottom:2px}
+.certificate-lightbox{position:fixed;inset:0;z-index:9999;display:none;align-items:center;justify-content:center;padding:28px;background:rgba(10,10,12,.88);backdrop-filter:blur(16px)}
+.certificate-lightbox.open{display:flex}
+.certificate-lightbox-inner{max-width:min(1200px,94vw);max-height:92vh;display:flex;flex-direction:column;align-items:center;gap:12px}
+.certificate-lightbox-inner img{max-width:100%;max-height:84vh;object-fit:contain;background:#fff;box-shadow:0 28px 80px rgba(0,0,0,.5)}
+.certificate-lightbox-title{color:#fff;font-size:.82rem;font-weight:800;text-align:center}
+.certificate-lightbox-close{position:fixed;top:18px;right:22px;width:44px;height:44px;border:1px solid rgba(255,255,255,.25);border-radius:50%;background:rgba(20,20,22,.55);color:#fff;font-size:1.8rem;line-height:1;cursor:pointer}
+@media(max-width:850px){.all-certificates-grid{grid-template-columns:1fr}.full-cert-copy{padding:20px}.certificate-summary-row{gap:7px}}
+</style><style>
+#recommendations .media-cover img{
+  width:100%;
+  height:100%;
+  display:block;
+  object-fit:cover;
+  object-position:center;
+}
+.verification-available{
+  display:inline-flex;
+  align-items:center;
+  margin:2px 0 12px;
+  padding:6px 9px;
+  border-radius:999px;
+  background:#e9f7ee;
+  color:#187443;
+  font-size:.68rem;
+  font-weight:850;
+  letter-spacing:.02em;
+}
+</style><style>
+#work .vesta-visual{
+  position:relative;
+  padding:0!important;
+  overflow:hidden!important;
+  background:#e9e5dc!important;
+}
+#work .vesta-visual img{
+  width:100%;
+  height:100%;
+  min-height:470px;
+  display:block;
+  object-fit:cover;
+  object-position:center;
+}
+#work .vesta-visual .visual-label{
+  position:absolute;
+  left:22px;
+  bottom:20px;
+  padding:8px 11px;
+  border-radius:999px;
+  background:rgba(17,17,17,.82);
+  color:#fff!important;
+  backdrop-filter:blur(10px);
+}
+.project-results{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:8px;
+  margin:22px 0 18px;
+}
+.project-results span{
+  display:flex;
+  flex-direction:column;
+  gap:2px;
+  padding:11px 12px;
+  border:1px solid rgba(17,17,17,.09);
+  border-radius:14px;
+  background:#f7f6f2;
+  color:#666;
+  font-size:.72rem;
+}
+.project-results b{
+  color:#111;
+  font-size:1.15rem;
+  letter-spacing:-.03em;
+}
+.project-report-link{
+  display:inline-flex;
+  margin-top:18px;
+  padding-bottom:2px;
+  border-bottom:1px solid currentColor;
+  color:#111!important;
+  font-size:.82rem;
+  font-weight:850;
+  text-decoration:none;
+}
+@media(max-width:900px){
+  #work .vesta-visual img{min-height:320px}
+}
+</style><style>
+#work .udemy-product-visual{
+  position:relative;
+  padding:0!important;
+  overflow:hidden!important;
+  background:#ebe7df!important;
+}
+#work .udemy-product-visual img{
+  width:100%;
+  height:100%;
+  min-height:470px;
+  display:block;
+  object-fit:cover;
+  object-position:center;
+}
+#work .udemy-product-visual .visual-label{
+  position:absolute;
+  left:22px;
+  bottom:20px;
+  padding:8px 11px;
+  border-radius:999px;
+  background:rgba(17,17,17,.82);
+  color:#fff!important;
+  backdrop-filter:blur(10px);
+}
+.project-subfeatures{
+  display:flex;
+  flex-wrap:wrap;
+  gap:7px;
+  margin-top:10px;
+}
+.project-subfeatures span{
+  padding:6px 9px;
+  border-radius:999px;
+  background:#eef0ff;
+  color:#4a4bd6;
+  border:1px solid rgba(91,92,255,.14);
+  font-size:.68rem;
+  font-weight:800;
+}
+@media(max-width:900px){
+  #work .udemy-product-visual img{min-height:320px}
+}
+</style><style>
+/* Writing placeholders */
+#writing .writing-placeholder-card{
+  min-height:220px;
+}
+#writing .writing-placeholder-card h3{
+  max-width:18ch;
+}
+
+/* Smaller contact email */
+#contact .contact-mail{
+  font-size:clamp(1.55rem, 3.2vw, 3.4rem)!important;
+  line-height:1.05!important;
+  letter-spacing:-.045em!important;
+  overflow-wrap:anywhere;
+}
+@media (max-width:720px){
+  #contact .contact-mail{
+    font-size:clamp(1.35rem, 7vw, 2.25rem)!important;
+  }
+}
+</style><style>
+/* Hero photo replaces monogram */
+.hero-photo-wrap{position:absolute;left:30px;right:30px;top:52px;bottom:108px;border-radius:28px;overflow:hidden;box-shadow:0 22px 44px rgba(0,0,0,.18);border:1px solid rgba(255,255,255,.16);background:rgba(255,255,255,.08);z-index:2}
+.hero-photo{width:100%;height:100%;display:block;object-fit:cover;object-position:center 18%}
+.portrait-topline,.portrait-meta,.hero-photo-wrap{position:relative;z-index:2}
+@media (max-width:900px){.hero-photo-wrap{left:24px;right:24px;top:48px;bottom:104px;border-radius:24px}}
+
+/* Remove dark-mode feature completely */
+body.dark{background:var(--bg)!important;color:var(--ink)!important}
+.theme-toggle{display:none!important}
+</style><style>
+.product-direction-note{
+  display:inline-flex;
+  margin:-14px 0 24px;
+  padding:7px 11px;
+  border-radius:999px;
+  border:1px solid rgba(91,92,255,.16);
+  background:rgba(91,92,255,.07);
+  color:#4b4ccf;
+  font-size:.72rem;
+  font-weight:800;
+  letter-spacing:.01em;
+}
+</style><link href="https://borasenel.me/" rel="canonical"/><link as="image" fetchpriority="high" href="assets/hero/bs-reference-transparent.webp" rel="preload" type="image/webp"/><meta content="website" property="og:type"/><meta content="tr_TR" property="og:locale"/><meta content="Bora Şenel | AI, Yazılım, QA, Veri &amp; Product Portfolio" property="og:title"/><meta content="Bora Şenel'in yapay zekâ, yazılım geliştirme, kalite güvencesi, veri analizi ve Product Owner / ürün yönetimi yönelimini bir araya getiren kişisel portfolyosu." property="og:description"/><meta content="https://borasenel.me/" property="og:url"/><meta content="https://borasenel.me/assets/og/borasenel-og.jpg" property="og:image"/><meta content="Bora Şenel — AI, Yazılım, QA, Veri ve Ürün Portfolyosu" property="og:image:alt"/><meta content="1200" property="og:image:width"/><meta content="630" property="og:image:height"/><meta content="summary_large_image" name="twitter:card"/><meta content="Bora Şenel | Portfolio" name="twitter:title"/><meta content="Bora Şenel'in yapay zekâ, yazılım geliştirme, kalite güvencesi, veri analizi ve Product Owner / ürün yönetimi yönelimini bir araya getiren kişisel portfolyosu." name="twitter:description"/><meta content="https://borasenel.me/assets/og/borasenel-og.jpg" name="twitter:image"/><link href="assets/icons/favicon-32.png" rel="icon" sizes="32x32" type="image/png"/><link href="assets/icons/icon-192.png" rel="icon" sizes="192x192" type="image/png"/><link href="assets/icons/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/><link href="site.webmanifest" rel="manifest"/><script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Bora Şenel","url":"https://borasenel.me/","sameAs":["https://linkedin.com/in/borasenel","https://github.com/elverpool","https://medium.com/@borasenel","https://letterboxd.com/borelver/","https://www.upwork.com/freelancers/~01b04430b8e9dc3db6"],"alumniOf":{"@type":"CollegeOrUniversity","name":"Düzce Üniversitesi"},"knowsAbout":["Artificial Intelligence","Software Development","Quality Assurance","Data Analysis","Product Management","Product Ownership"]}</script><style>
+.project-actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-top:20px;
+}
+.project-action{
+  appearance:none;
+  border:1px solid rgba(17,17,17,.13);
+  border-radius:999px;
+  padding:9px 12px;
+  background:rgba(255,255,255,.56);
+  color:#777;
+  font:inherit;
+  font-size:.72rem;
+  font-weight:800;
+}
+.project-action.is-disabled{
+  cursor:not-allowed;
+  opacity:.62;
+}
+.disabled-link{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:18px;
+  border-radius:999px;
+  padding:15px 22px;
+  font-weight:650;
+  font-size:13px;
+  opacity:.55;
+  cursor:not-allowed;
+  user-select:none;
+}
+</style><style>
+/* === V11 surgical rebuild === */
+
+/* English labels: never locale-uppercase i -> İ */
+.section-micro-label,
+.writing-type {
+  text-transform: none !important;
+}
+
+/* Hero: exact approved BS reference image */
+.hero-visual{
+  min-height:auto !important;
+  display:flex !important;
+  align-items:center;
+  justify-content:center;
+}
+.hero-bs-reference{
+  width:min(100%, 690px);
+  margin-inline:auto;
+}
+.hero-bs-reference img{
+  display:block;
+  width:100%;
+  height:auto;
+  object-fit:contain;
+}
+.hero-visual .orbit,
+.hero-visual .portrait-card,
+.hero-visual .floating-chip{
+  display:none !important;
+}
+
+/* About: preserve original timeline spacing; add logo as non-destructive row */
+#about .timeline-item > div:last-child{
+  position:relative;
+}
+#about .experience-real-logo{
+  width:118px;
+  height:54px;
+  display:flex;
+  align-items:center;
+  justify-content:flex-start;
+  margin:0 0 12px;
+}
+#about .experience-real-logo img{
+  display:block;
+  max-width:118px;
+  max-height:48px;
+  width:auto;
+  height:auto;
+  object-fit:contain;
+}
+
+/* Projects: compact light reference layout */
+#work.projects-reference-layout{
+  background:#f7f8fb !important;
+  color:#17191f !important;
+  border-radius:34px;
+  margin-inline:auto;
+  max-width:1500px;
+}
+#work.projects-reference-layout .section-heading h2,
+#work.projects-reference-layout .section-heading p,
+#work.projects-reference-layout h3,
+#work.projects-reference-layout p{
+  color:inherit !important;
+}
+#work.projects-reference-layout .section-note{
+  color:#677080 !important;
+}
+#work .projects{
+  display:grid !important;
+  grid-template-columns:repeat(3,minmax(0,1fr)) !important;
+  gap:18px !important;
+}
+#work .project{
+  display:flex !important;
+  flex-direction:column !important;
+  border:1px solid #e1e5ec !important;
+  border-radius:18px !important;
+  overflow:hidden !important;
+  background:#fff !important;
+  color:#17191f !important;
+  box-shadow:0 8px 24px rgba(20,28,40,.035) !important;
+  transform:none !important;
+}
+#work .project::before{display:none !important}
+#work .project-visual{
+  height:205px !important;
+  min-height:205px !important;
+  border-radius:0 !important;
+  overflow:hidden !important;
+  padding:0 !important;
+  background:#eef2f7 !important;
+  position:relative;
+}
+#work .project-visual img{
+  width:100% !important;
+  height:100% !important;
+  object-fit:cover !important;
+  display:block !important;
+}
+#work .project-visual-badge,
+#work .visual-label{
+  position:absolute !important;
+  left:12px !important;
+  top:12px !important;
+  bottom:auto !important;
+  right:auto !important;
+  padding:6px 9px !important;
+  background:rgba(14,18,28,.75) !important;
+  color:#fff !important;
+  border-radius:999px !important;
+  font-size:10px !important;
+  font-weight:800 !important;
+  letter-spacing:.05em !important;
+}
+#work .project-copy{
+  display:block !important;
+  padding:16px 17px 17px !important;
+}
+#work .project-type{
+  margin:0 0 7px !important;
+  color:#5268d8 !important;
+  font-size:10px !important;
+  font-weight:800 !important;
+}
+#work .project h3{
+  margin:0 0 9px !important;
+  font-size:18px !important;
+  line-height:1.2 !important;
+  letter-spacing:-.025em !important;
+  color:#17191f !important;
+}
+#work .project-copy p:not(.project-type){
+  margin:0 !important;
+  color:#636c79 !important;
+  font-size:12.5px !important;
+  line-height:1.58 !important;
+}
+#work .tags{
+  display:flex !important;
+  flex-wrap:wrap !important;
+  gap:6px !important;
+  margin-top:12px !important;
+}
+#work .tags span{
+  padding:5px 8px !important;
+  border-radius:999px !important;
+  background:#f3f5f8 !important;
+  border:1px solid #e6e9ee !important;
+  color:#59616d !important;
+  font-size:9px !important;
+}
+#work .project-actions{
+  margin-top:14px !important;
+}
+#work .project-action{
+  padding:9px 14px !important;
+  border:1px solid #d7dce4 !important;
+  border-radius:12px !important;
+  background:#fff !important;
+  color:#252a32 !important;
+  opacity:1 !important;
+  font-weight:700 !important;
+  font-size:12px !important;
+}
+
+/* Certificates: compact visual grid, preserving lightbox + links */
+#certificates .certificate-summary-row{
+  margin-bottom:22px !important;
+}
+#certificates .cert-reference-grid{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:18px;
+}
+#certificates .cert-reference-card{
+  display:flex;
+  flex-direction:column;
+  overflow:hidden;
+  border:1px solid #e1e5ec;
+  border-radius:18px;
+  background:#fff;
+  box-shadow:0 8px 24px rgba(20,28,40,.035);
+}
+#certificates .cert-reference-image{
+  position:relative;
+  display:block;
+  width:100%;
+  height:220px;
+  border:0;
+  padding:0;
+  overflow:hidden;
+  background:#f3f5f8;
+  cursor:pointer;
+}
+#certificates .cert-reference-image img{
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  object-position:center;
+  padding:10px;
+  box-sizing:border-box;
+}
+#certificates .cert-reference-image .certificate-zoom-label{
+  position:absolute;
+  right:10px;
+  bottom:10px;
+  background:rgba(14,18,28,.76);
+  color:#fff;
+  padding:6px 9px;
+  border-radius:999px;
+  font-size:10px;
+  font-weight:800;
+}
+#certificates .cert-reference-copy{
+  padding:15px 16px 17px;
+  display:flex;
+  flex-direction:column;
+  min-height:220px;
+}
+#certificates .cert-reference-type{
+  color:#5268d8;
+  font-size:9px;
+  font-weight:800;
+  letter-spacing:.04em;
+  margin-bottom:7px;
+}
+#certificates .cert-reference-card h3{
+  margin:0 0 7px;
+  font-size:16px;
+  line-height:1.28;
+  letter-spacing:-.02em;
+}
+#certificates .cert-reference-card p{
+  margin:0;
+  color:#687180;
+  font-size:12px;
+}
+#certificates .cert-reference-skills{
+  display:flex;
+  flex-wrap:wrap;
+  gap:5px;
+  margin-top:12px;
+}
+#certificates .cert-reference-skills span{
+  padding:5px 7px;
+  border-radius:999px;
+  background:#f3f5f8;
+  border:1px solid #e6e9ee;
+  color:#606875;
+  font-size:9px;
+}
+#certificates .cert-reference-card a{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:max-content;
+  margin-top:auto;
+  padding:9px 12px;
+  border:1px solid #d7dce4;
+  border-radius:11px;
+  font-size:11px;
+  font-weight:750;
+}
+
+/* Responsive */
+@media (max-width:1050px){
+  #work .projects,
+  #certificates .cert-reference-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+  }
+}
+@media (max-width:680px){
+  #work .projects,
+  #certificates .cert-reference-grid{
+    grid-template-columns:1fr !important;
+  }
+  #work .project-visual{
+    height:220px !important;
+  }
+  #certificates .cert-reference-image{
+    height:230px;
+  }
+}
+</style><style>
+/* ===== V12: Hero transparent BS composition with circles ===== */
+.hero-visual{
+  position:relative !important;
+  min-height:620px !important;
+  display:flex !important;
+  align-items:center;
+  justify-content:center;
+  overflow:visible !important;
+}
+.hero-bs-reference{display:none!important;}
+.hero-bs-stage{
+  position:relative;
+  width:min(100%, 760px);
+  z-index:3;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+.hero-bs-transparent{
+  display:block;
+  width:100%;
+  height:auto;
+  object-fit:contain;
+  filter:drop-shadow(0 18px 34px rgba(18,24,36,.10));
+}
+.hero-visual .orbit{
+  display:block !important;
+  position:absolute;
+  border-radius:999px;
+  z-index:1;
+  pointer-events:none;
+}
+.hero-visual .orbit-one{
+  width:245px;
+  height:245px;
+  left:30px;
+  top:70px;
+  background:radial-gradient(circle at 30% 30%, rgba(147,168,255,.34), rgba(147,168,255,.08) 58%, rgba(147,168,255,0) 72%);
+  border:1px solid rgba(128,145,255,.18);
+  filter:blur(.2px);
+}
+.hero-visual .orbit-two{
+  width:310px;
+  height:310px;
+  right:14px;
+  bottom:38px;
+  background:radial-gradient(circle at 30% 30%, rgba(162,191,255,.26), rgba(162,191,255,.08) 58%, rgba(162,191,255,0) 74%);
+  border:1px solid rgba(166,183,255,.16);
+  filter:blur(.2px);
+}
+@media (max-width: 900px){
+  .hero-visual{
+    min-height:440px !important;
+  }
+  .hero-bs-stage{
+    width:min(100%, 560px);
+  }
+  .hero-visual .orbit-one{
+    width:170px; height:170px; left:6px; top:48px;
+  }
+  .hero-visual .orbit-two{
+    width:210px; height:210px; right:0; bottom:24px;
+  }
+}
+
+/* ===== V12: Recommendations section should stay light ===== */
+#recommendations{
+  background:#f7f8fb !important;
+  color:#17191f !important;
+}
+#recommendations .light,
+#recommendations h2,
+#recommendations h3,
+#recommendations h4,
+#recommendations p,
+#recommendations .recommendation-index,
+#recommendations .book-author{
+  color:inherit !important;
+}
+#recommendations .recommendation-intro h2 span{
+  color:#6d7787 !important;
+}
+#recommendations .recommendation-intro > p:last-child{
+  color:#68707d !important;
+}
+#recommendations .recommendation-column{
+  background:#fff !important;
+  border:1px solid #e3e6ec !important;
+  box-shadow:0 10px 26px rgba(20,28,40,.035) !important;
+}
+#recommendations .recommendation-index{
+  color:#5268d8 !important;
+}
+#recommendations .media-recommendation{
+  border-bottom:1px solid #eceff4 !important;
+}
+#recommendations .placeholder-cover{
+  background:#f3f5f8 !important;
+  color:#7b8391 !important;
+}
+#recommendations .media-cover{
+  box-shadow:0 12px 26px rgba(20,28,40,.08) !important;
+}
+</style><style>
+/* ===== V13 targeted cleanup ===== */
+
+/* Certificates heading: same line, second phrase sits slightly lower */
+#certificates .section-heading{
+  grid-template-columns:1fr !important;
+}
+#certificates .cert-heading-inline{
+  display:flex !important;
+  flex-wrap:wrap;
+  align-items:baseline;
+  gap:.24em;
+  max-width:none !important;
+}
+#certificates .cert-heading-inline span{
+  display:inline-block;
+  transform:translateY(.16em);
+}
+@media (max-width:720px){
+  #certificates .cert-heading-inline{
+    display:block !important;
+  }
+  #certificates .cert-heading-inline span{
+    display:block;
+    transform:translateY(.08em);
+  }
+}
+
+/* Writing: keep the entire section on the site's light theme */
+#writing{
+  background:transparent !important;
+  color:var(--ink) !important;
+}
+#writing .section-heading h2,
+#writing .section-heading h2 span,
+#writing .writing-group-title,
+#writing .writing-card h3,
+#writing .writing-card p,
+#writing .writing-meta,
+#writing .writing-type{
+  color:inherit !important;
+}
+#writing .writing-panel,
+#writing .writing-card{
+  background:#fff !important;
+  color:var(--ink) !important;
+  border-color:#e3e6ec !important;
+}
+#writing .writing-card{
+  box-shadow:0 10px 26px rgba(20,28,40,.035) !important;
+}
+#writing .writing-type{
+  color:#5268d8 !important;
+}
+#writing .writing-meta{
+  color:#6a7280 !important;
+}
+
+/* Recommendations intro: use full shell width instead of a narrow left column */
+#recommendations .recommendation-shell{
+  display:block !important;
+  width:100%;
+}
+#recommendations .recommendation-intro-wide{
+  width:100%;
+  max-width:none !important;
+  display:grid;
+  grid-template-columns:minmax(0,1.15fr) minmax(320px,.85fr);
+  column-gap:70px;
+  align-items:end;
+}
+#recommendations .recommendation-intro-wide .eyebrow{
+  grid-column:1 / -1;
+}
+#recommendations .recommendation-intro-wide h2{
+  max-width:none !important;
+  margin:0 !important;
+}
+#recommendations .recommendation-intro-wide > p:last-child{
+  max-width:620px !important;
+  margin:0 0 6px !important;
+  justify-self:end;
+}
+@media (max-width:850px){
+  #recommendations .recommendation-intro-wide{
+    grid-template-columns:1fr;
+    row-gap:22px;
+  }
+  #recommendations .recommendation-intro-wide > p:last-child{
+    justify-self:start;
+    max-width:760px !important;
+  }
+}
+
+/* Contact: keep email on one line and shift it slightly left */
+#contact .contact-grid{
+  grid-template-columns:minmax(0,.88fr) minmax(520px,1.12fr) !important;
+  gap:42px !important;
+}
+#contact .contact-side{
+  min-width:0;
+  transform:translateX(-22px);
+}
+#contact .contact-mail-nowrap{
+  display:inline-flex !important;
+  white-space:nowrap !important;
+  overflow-wrap:normal !important;
+  word-break:normal !important;
+  font-size:clamp(1.42rem,2.7vw,2.8rem) !important;
+  letter-spacing:-.04em !important;
+}
+@media (max-width:980px){
+  #contact .contact-grid{
+    grid-template-columns:1fr !important;
+  }
+  #contact .contact-side{
+    transform:none;
+  }
+  #contact .contact-mail-nowrap{
+    white-space:normal !important;
+    overflow-wrap:anywhere !important;
+    font-size:clamp(1.35rem,6vw,2.25rem) !important;
+  }
+}
+
+/* Hero: move image up, keep circles behind and add a front arc for pass-through effect */
+.hero-visual{
+  transform:translateY(-34px);
+}
+.hero-bs-stage{
+  z-index:3 !important;
+  transform:translateY(-12px);
+}
+.hero-visual .orbit{
+  background:transparent !important;
+  border:1.5px solid rgba(126,145,255,.28) !important;
+  box-shadow:none !important;
+  filter:none !important;
+}
+.hero-visual .orbit-one{
+  z-index:1 !important;
+  width:300px !important;
+  height:300px !important;
+  left:-8px !important;
+  top:36px !important;
+}
+.hero-visual .orbit-two{
+  z-index:1 !important;
+  width:350px !important;
+  height:350px !important;
+  right:-8px !important;
+  bottom:20px !important;
+}
+/* front segment of the right ring: gives the illusion the artwork passes through it */
+.hero-visual::after{
+  content:"";
+  position:absolute;
+  z-index:4;
+  width:350px;
+  height:350px;
+  right:-8px;
+  bottom:20px;
+  border:1.5px solid rgba(126,145,255,.38);
+  border-radius:50%;
+  clip-path:inset(0 0 52% 0);
+  pointer-events:none;
+}
+@media (max-width:900px){
+  .hero-visual{
+    transform:translateY(-18px);
+  }
+  .hero-bs-stage{
+    transform:translateY(-6px);
+  }
+  .hero-visual .orbit-one{
+    width:190px !important;
+    height:190px !important;
+    left:0 !important;
+    top:28px !important;
+  }
+  .hero-visual .orbit-two{
+    width:230px !important;
+    height:230px !important;
+    right:0 !important;
+    bottom:18px !important;
+  }
+  .hero-visual::after{
+    width:230px;
+    height:230px;
+    right:0;
+    bottom:18px;
+  }
+}
+</style><style>
+/* ===== V14 precise fixes ===== */
+
+/* Hero: larger artwork + one clear ring it emerges from */
+.hero-visual{
+  position:relative !important;
+  min-height:690px !important;
+  display:flex !important;
+  align-items:center;
+  justify-content:center;
+  transform:translateY(-42px) !important;
+}
+.hero-bs-stage{
+  width:min(100%, 900px) !important;
+  transform:translateY(-18px) scale(1.08) !important;
+  z-index:3 !important;
+}
+.hero-bs-transparent{
+  width:100% !important;
+  height:auto !important;
+  display:block !important;
+}
+.hero-visual .orbit-one{
+  display:none !important;
+}
+.hero-visual .orbit-two{
+  z-index:1 !important;
+  width:430px !important;
+  height:430px !important;
+  right:46px !important;
+  top:120px !important;
+  bottom:auto !important;
+  border:2px solid rgba(129,145,255,.30) !important;
+  background:transparent !important;
+}
+.hero-visual::after{
+  content:"";
+  position:absolute;
+  z-index:4;
+  width:430px;
+  height:430px;
+  right:46px;
+  top:120px;
+  border:2px solid rgba(129,145,255,.42);
+  border-radius:50%;
+  /* front lower-left arc, so artwork looks like it comes out of the ring */
+  clip-path:polygon(0 46%, 48% 46%, 48% 100%, 0 100%);
+  pointer-events:none;
+}
+@media (max-width:900px){
+  .hero-visual{
+    min-height:470px !important;
+    transform:translateY(-18px) !important;
+  }
+  .hero-bs-stage{
+    width:min(100%, 620px) !important;
+    transform:translateY(-8px) scale(1.04) !important;
+  }
+  .hero-visual .orbit-two{
+    width:250px !important;
+    height:250px !important;
+    right:12px !important;
+    top:92px !important;
+  }
+  .hero-visual::after{
+    width:250px;
+    height:250px;
+    right:12px;
+    top:92px;
+  }
+}
+
+/* Writing heading inline */
+#writing .section-heading{
+  grid-template-columns:1fr !important;
+}
+#writing .writing-heading-inline{
+  display:flex !important;
+  flex-wrap:wrap;
+  align-items:baseline;
+  gap:.26em;
+  max-width:none !important;
+}
+#writing .writing-heading-inline span{
+  display:inline !important;
+  transform:none !important;
+}
+@media (max-width:720px){
+  #writing .writing-heading-inline{
+    display:block !important;
+  }
+}
+
+/* Writing section must stay light, not black */
+#writing{
+  background:#f7f8fb !important;
+  color:#17191f !important;
+}
+#writing .writing-panel,
+#writing .writing-card,
+#writing .writing-list,
+#writing .section-heading{
+  background:transparent !important;
+}
+#writing .writing-card{
+  background:#fff !important;
+  border:1px solid #e3e6ec !important;
+  box-shadow:0 10px 26px rgba(20,28,40,.035) !important;
+}
+#writing h2,
+#writing h2 span,
+#writing h3,
+#writing p,
+#writing .writing-group-title,
+#writing .writing-meta,
+#writing .writing-type{
+  color:#17191f !important;
+}
+#writing .writing-type{
+  color:#5268d8 !important;
+}
+#writing .writing-meta{
+  color:#6a7280 !important;
+}
+
+/* Recommendations heading inline + a bit away from tabs */
+#recommendations .recommendation-intro-wide{
+  display:block !important;
+}
+#recommendations .recommendation-heading-inline{
+  display:flex !important;
+  flex-wrap:wrap;
+  gap:.26em;
+  align-items:baseline;
+  max-width:none !important;
+  margin:0 0 22px !important;
+}
+#recommendations .recommendation-heading-inline span{
+  display:inline !important;
+  transform:none !important;
+}
+#recommendations .recommendation-columns{
+  margin-top:8px !important;
+}
+@media (max-width:720px){
+  #recommendations .recommendation-heading-inline{
+    display:block !important;
+  }
+}
+
+</style><style>
+/* ===== V15 final cleanup ===== */
+
+/* Hero bigger and higher */
+.hero-visual{
+  min-height:740px !important;
+  transform:translateY(-64px) !important;
+}
+.hero-bs-stage{
+  width:min(100%, 980px) !important;
+  transform:translateY(-34px) scale(1.16) !important;
+}
+.hero-visual .orbit-two{
+  width:470px !important;
+  height:470px !important;
+  right:36px !important;
+  top:104px !important;
+}
+.hero-visual::after{
+  width:470px !important;
+  height:470px !important;
+  right:36px !important;
+  top:104px !important;
+}
+@media (max-width:900px){
+  .hero-visual{
+    min-height:500px !important;
+    transform:translateY(-22px) !important;
+  }
+  .hero-bs-stage{
+    width:min(100%, 670px) !important;
+    transform:translateY(-10px) scale(1.08) !important;
+  }
+  .hero-visual .orbit-two{
+    width:260px !important;
+    height:260px !important;
+    right:10px !important;
+    top:92px !important;
+  }
+  .hero-visual::after{
+    width:260px !important;
+    height:260px !important;
+    right:10px !important;
+    top:92px !important;
+  }
+}
+
+/* Force requested headings on one line styling */
+#about .about-heading-inline,
+#work .work-heading-inline,
+#skills .skills-heading-inline,
+#writing .writing-heading-inline,
+#recommendations .recommendation-heading-inline{
+  display:block !important;
+  max-width:none !important;
+}
+#writing .section-heading,
+#about .section-heading,
+#work .section-heading,
+#skills .section-heading{
+  grid-template-columns:1fr !important;
+}
+
+/* Writing + Recommendations tones aligned with site palette */
+#writing,
+#recommendations{
+  background:var(--bg) !important;
+  color:var(--ink) !important;
+}
+#writing .shell,
+#recommendations .shell,
+#writing .recommendation-shell,
+#recommendations .recommendation-shell{
+  background:transparent !important;
+}
+#writing .writing-panel,
+#recommendations .recommendation-column{
+  background:var(--surface) !important;
+  border:1px solid var(--line) !important;
+  box-shadow:none !important;
+}
+#writing .writing-card,
+#recommendations .media-recommendation{
+  background:#fff !important;
+  border:1px solid color-mix(in srgb, var(--line) 90%, transparent) !important;
+  box-shadow:none !important;
+}
+#writing h2,
+#writing h3,
+#writing p,
+#writing .writing-group-title,
+#writing .writing-meta,
+#writing .writing-type,
+#recommendations h2,
+#recommendations h3,
+#recommendations h4,
+#recommendations p,
+#recommendations .book-author,
+#recommendations .recommendation-index{
+  color:var(--ink) !important;
+}
+#writing .writing-meta,
+#recommendations .book-author{
+  color:var(--muted) !important;
+}
+#writing .writing-type,
+#recommendations .recommendation-index{
+  color:var(--accent) !important;
+}
+#recommendations .recommendation-heading-inline{
+  margin:0 0 20px !important;
+}
+#recommendations .recommendation-columns{
+  margin-top:8px !important;
+}
+#recommendations .placeholder-cover{
+  background:var(--surface-2) !important;
+  color:var(--muted) !important;
+}
+
+/* Keep intro compact and clean */
+#recommendations .recommendation-intro-wide{
+  display:block !important;
+}
+
+/* mobile text handling */
+@media (max-width:720px){
+  #about .about-heading-inline,
+  #work .work-heading-inline,
+  #skills .skills-heading-inline,
+  #writing .writing-heading-inline,
+  #recommendations .recommendation-heading-inline{
+    line-height:1.08 !important;
+  }
+}
+</style><style>
+/* ===== V17 Skills redesign — scoped only to #skills ===== */
+#skills{
+  padding-top:92px !important;
+  padding-bottom:92px !important;
+}
+#skills .section-heading{
+  margin-bottom:34px !important;
+}
+#skills .skill-grid{
+  display:grid !important;
+  grid-template-columns:repeat(12,minmax(0,1fr)) !important;
+  gap:16px !important;
+  border:0 !important;
+}
+#skills .skill-card-redesign{
+  position:relative;
+  min-height:370px !important;
+  padding:28px !important;
+  border:1px solid rgba(21,21,21,.11) !important;
+  border-radius:26px !important;
+  background:rgba(248,247,243,.92) !important;
+  color:var(--ink) !important;
+  overflow:hidden !important;
+  display:flex !important;
+  flex-direction:column !important;
+  justify-content:flex-start !important;
+  box-shadow:0 14px 34px rgba(20,20,24,.035) !important;
+  transition:transform .22s ease,border-color .22s ease,box-shadow .22s ease !important;
+}
+#skills .skill-card-redesign:hover{
+  transform:translateY(-4px) !important;
+  border-color:rgba(93,98,255,.28) !important;
+  box-shadow:0 18px 42px rgba(20,20,24,.065) !important;
+  background:rgba(248,247,243,.98) !important;
+  color:var(--ink) !important;
+}
+#skills .skill-bento-1{grid-column:span 6 !important}
+#skills .skill-bento-2{grid-column:span 6 !important}
+#skills .skill-bento-3{grid-column:span 5 !important}
+#skills .skill-bento-4{grid-column:span 7 !important}
+
+#skills .skill-card-redesign::before{
+  content:"";
+  position:absolute;
+  width:210px;
+  height:210px;
+  border-radius:50%;
+  right:-78px;
+  top:-92px;
+  background:radial-gradient(circle,rgba(93,98,255,.13),rgba(93,98,255,0) 68%);
+  pointer-events:none;
+}
+#skills .skill-bento-2::before{
+  background:radial-gradient(circle,rgba(93,98,255,.17),rgba(93,98,255,0) 68%);
+}
+#skills .skill-product-card{
+  background:linear-gradient(145deg,rgba(228,229,255,.68),rgba(248,247,243,.94)) !important;
+}
+#skills .skill-product-card::before{
+  width:300px;
+  height:300px;
+  right:-110px;
+  top:-130px;
+  background:radial-gradient(circle,rgba(93,98,255,.20),rgba(93,98,255,0) 69%);
+}
+
+#skills .skill-card-top{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:16px;
+  position:relative;
+  z-index:1;
+}
+#skills .skill-no{
+  margin-top:5px;
+  font-size:10px !important;
+  line-height:1;
+  letter-spacing:.14em !important;
+  font-weight:800;
+  color:var(--muted) !important;
+  opacity:1 !important;
+}
+#skills .skill-symbol{
+  width:52px;
+  height:52px;
+  flex:0 0 52px;
+  border-radius:17px;
+  display:grid;
+  place-items:center;
+  border:1px solid rgba(93,98,255,.16);
+  background:rgba(93,98,255,.08);
+  color:var(--accent) !important;
+  font-size:15px;
+  font-weight:900;
+  letter-spacing:-.04em;
+}
+#skills .skill-symbol.code-symbol{
+  font-size:13px;
+}
+
+#skills .skill-main{
+  position:relative;
+  z-index:1;
+  margin-top:30px;
+}
+#skills .skill-card-redesign h3{
+  margin:0 0 12px !important;
+  font-size:clamp(1.65rem,2.3vw,2.25rem) !important;
+  line-height:1 !important;
+  letter-spacing:-.045em !important;
+  color:var(--ink) !important;
+}
+#skills .skill-card-redesign p{
+  max-width:620px !important;
+  margin:0 !important;
+  color:var(--muted) !important;
+  font-size:13px !important;
+  line-height:1.68 !important;
+}
+
+#skills .skill-chip-list{
+  display:flex;
+  flex-wrap:wrap;
+  gap:7px;
+  margin-top:24px;
+  position:relative;
+  z-index:1;
+}
+#skills .skill-chip-list span{
+  display:inline-flex;
+  align-items:center;
+  min-height:31px;
+  padding:6px 10px;
+  border-radius:999px;
+  border:1px solid rgba(21,21,21,.10);
+  background:rgba(255,255,255,.58);
+  color:#4f504d !important;
+  font-size:10.5px;
+  line-height:1;
+  font-weight:700;
+}
+#skills .skill-product-card .skill-chip-list span{
+  border-color:rgba(93,98,255,.14);
+  background:rgba(255,255,255,.55);
+}
+
+#skills .skill-footer{
+  margin-top:auto;
+  padding-top:24px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:18px;
+  border-top:1px solid rgba(21,21,21,.09);
+  position:relative;
+  z-index:1;
+  font-size:11px;
+}
+#skills .skill-footer strong{
+  color:var(--ink) !important;
+  font-size:9px;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+}
+#skills .skill-footer span{
+  color:var(--muted) !important;
+  text-align:right;
+}
+
+/* hide legacy product stack, if any remains elsewhere in this section */
+#skills .project-management-stack{
+  display:none !important;
+}
+
+@media(max-width:900px){
+  #skills .skill-grid{
+    grid-template-columns:1fr !important;
+  }
+  #skills .skill-card-redesign{
+    grid-column:auto !important;
+    min-height:330px !important;
+  }
+}
+@media(max-width:560px){
+  #skills .skill-card-redesign{
+    padding:22px !important;
+    border-radius:22px !important;
+  }
+  #skills .skill-main{
+    margin-top:22px;
+  }
+  #skills .skill-footer{
+    align-items:flex-start;
+    flex-direction:column;
+    gap:6px;
+  }
+  #skills .skill-footer span{
+    text-align:left;
+  }
+}
+</style><style>
+/* ===== V18 Recommendations tone alignment ===== */
+#recommendations{
+  background:var(--bg) !important;
+  color:var(--ink) !important;
+}
+#recommendations .recommendation-shell,
+#recommendations .recommendation-library{
+  background:transparent !important;
+}
+
+#recommendations .recommendation-column{
+  background:var(--surface) !important;
+  border:1px solid var(--line) !important;
+  box-shadow:0 12px 28px rgba(21,21,21,.035) !important;
+}
+
+#recommendations .recommendation-column-head{
+  border-bottom:1px solid var(--line) !important;
+}
+
+#recommendations .media-recommendation{
+  background:transparent !important;
+  border-bottom:1px solid var(--line) !important;
+}
+
+#recommendations h2,
+#recommendations h3,
+#recommendations h4,
+#recommendations p{
+  color:var(--ink) !important;
+}
+
+#recommendations .book-author{
+  color:var(--muted) !important;
+}
+
+#recommendations .recommendation-index{
+  color:var(--accent) !important;
+}
+
+#recommendations .placeholder-cover{
+  background:var(--surface-2) !important;
+  color:var(--muted) !important;
+  border:1px solid var(--line) !important;
+}
+
+#recommendations .media-cover{
+  box-shadow:0 12px 26px rgba(21,21,21,.08) !important;
+}
+
+#recommendations .recommendation-heading-inline{
+  color:var(--ink) !important;
+}
+</style><style>
+/* ===== V19 project copy polish ===== */
+#work .project-copy p:not(.project-type){
+  line-height:1.62 !important;
+}
+#work .project-type{
+  line-height:1.35 !important;
+}
+</style><style>
+/* ===== V20 Hero + full-width navbar ===== */
+
+/* Full-width header background/border, while content stays aligned to the site shell */
+.site-header{
+  width:100% !important;
+  max-width:none !important;
+  margin:0 !important;
+  padding-left:max(24px, calc((100vw - var(--shell)) / 2)) !important;
+  padding-right:max(24px, calc((100vw - var(--shell)) / 2)) !important;
+  box-sizing:border-box !important;
+  background:color-mix(in srgb, var(--bg) 88%, transparent) !important;
+  border-bottom:1px solid var(--line) !important;
+}
+
+/* Give the BS artwork more visual space */
+.hero{
+  grid-template-columns:.92fr 1.08fr !important;
+  gap:42px !important;
+}
+.hero h1{
+  max-width:650px !important;
+  font-size:clamp(42px,5.15vw,72px) !important;
+  line-height:.96 !important;
+  letter-spacing:-.055em !important;
+}
+.hero-lead{
+  max-width:610px !important;
+  font-size:16px !important;
+}
+.hero-bs-stage{
+  width:min(100%,1040px) !important;
+}
+
+@media(max-width:900px){
+  .site-header{
+    padding-left:20px !important;
+    padding-right:20px !important;
+  }
+  .hero{
+    grid-template-columns:1fr !important;
+    gap:22px !important;
+  }
+  .hero h1{
+    max-width:760px !important;
+    font-size:clamp(44px,11vw,68px) !important;
+  }
+}
+</style><style>
+/* ===== V21 Projects redesign ===== */
+#work.projects-reference-layout{
+  background:transparent !important;
+  border-radius:0 !important;
+  max-width:none !important;
+  padding-top:92px !important;
+  padding-bottom:96px !important;
+}
+#work .section-heading{
+  margin-bottom:38px !important;
+}
+#work .projects{
+  display:grid !important;
+  grid-template-columns:repeat(12,minmax(0,1fr)) !important;
+  gap:18px !important;
+}
+
+#work .project-v21{
+  position:relative !important;
+  display:flex !important;
+  flex-direction:column !important;
+  overflow:hidden !important;
+  border-radius:26px !important;
+  border:1px solid rgba(21,21,21,.11) !important;
+  background:var(--surface) !important;
+  box-shadow:0 14px 34px rgba(20,20,24,.035) !important;
+  transition:transform .24s ease, box-shadow .24s ease, border-color .24s ease !important;
+}
+#work .project-v21:hover{
+  transform:translateY(-4px) !important;
+  box-shadow:0 20px 44px rgba(20,20,24,.075) !important;
+  border-color:rgba(93,98,255,.22) !important;
+}
+
+/* Featured projects */
+#work .project-v21-featured{
+  grid-column:span 6 !important;
+  min-height:590px !important;
+}
+#work .project-v21-featured .project-visual{
+  height:320px !important;
+  min-height:320px !important;
+}
+#work .project-v21-featured .project-copy{
+  padding:24px 26px 26px !important;
+}
+#work .project-v21-featured h3{
+  font-size:clamp(1.7rem,2.3vw,2.25rem) !important;
+  line-height:1.02 !important;
+  letter-spacing:-.045em !important;
+  margin-bottom:13px !important;
+}
+#work .project-v21-featured .project-copy p:not(.project-type){
+  font-size:13.5px !important;
+  line-height:1.65 !important;
+  max-width:92%;
+}
+
+/* Compact lower cards */
+#work .project-v21-compact{
+  grid-column:span 3 !important;
+  min-height:455px !important;
+}
+#work .project-v21-compact .project-visual{
+  height:205px !important;
+  min-height:205px !important;
+}
+#work .project-v21-compact .project-copy{
+  padding:18px 18px 19px !important;
+}
+#work .project-v21-compact h3{
+  font-size:1.15rem !important;
+  line-height:1.14 !important;
+  letter-spacing:-.03em !important;
+  margin:0 0 10px !important;
+}
+#work .project-v21-compact .project-copy p:not(.project-type){
+  font-size:12px !important;
+  line-height:1.58 !important;
+}
+
+/* Visual treatment */
+#work .project-v21 .project-visual{
+  position:relative !important;
+  overflow:hidden !important;
+  padding:0 !important;
+  background:#e9edf3 !important;
+}
+#work .project-v21 .project-visual img{
+  width:100% !important;
+  height:100% !important;
+  object-fit:cover !important;
+  display:block !important;
+  transition:transform .5s ease !important;
+}
+#work .project-v21:hover .project-visual img{
+  transform:scale(1.025) !important;
+}
+#work .project-v21-number{
+  position:absolute;
+  top:14px;
+  right:14px;
+  z-index:4;
+  width:39px;
+  height:39px;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  background:rgba(248,247,243,.9);
+  backdrop-filter:blur(10px);
+  border:1px solid rgba(21,21,21,.1);
+  color:#242527;
+  font-size:10px;
+  font-weight:850;
+}
+#work .project-visual-badge,
+#work .visual-label{
+  left:14px !important;
+  top:14px !important;
+  bottom:auto !important;
+  padding:7px 10px !important;
+  border-radius:999px !important;
+  background:rgba(15,17,22,.72) !important;
+  backdrop-filter:blur(8px);
+  color:white !important;
+  font-size:9px !important;
+  letter-spacing:.07em !important;
+  font-weight:800 !important;
+}
+
+/* Type / text */
+#work .project-type{
+  margin:0 0 9px !important;
+  color:var(--accent) !important;
+  font-size:9.5px !important;
+  letter-spacing:.07em !important;
+  font-weight:850 !important;
+}
+#work .project-v21 h3{
+  color:var(--ink) !important;
+}
+#work .project-v21 .project-copy p:not(.project-type){
+  color:var(--muted) !important;
+  margin:0 !important;
+}
+
+/* Chips + actions */
+#work .project-v21 .tags{
+  display:flex !important;
+  flex-wrap:wrap !important;
+  gap:6px !important;
+  margin-top:17px !important;
+}
+#work .project-v21 .tags span{
+  padding:6px 9px !important;
+  border-radius:999px !important;
+  background:rgba(93,98,255,.055) !important;
+  border:1px solid rgba(93,98,255,.12) !important;
+  color:#5559c9 !important;
+  font-size:9.5px !important;
+  font-weight:700 !important;
+}
+#work .project-v21 .project-actions{
+  margin-top:auto !important;
+  padding-top:18px !important;
+}
+#work .project-v21 .project-action{
+  padding:10px 15px !important;
+  border-radius:13px !important;
+  background:transparent !important;
+  border:1px solid rgba(21,21,21,.13) !important;
+  color:var(--ink) !important;
+  font-size:11px !important;
+  font-weight:800 !important;
+  opacity:1 !important;
+}
+#work .project-v21 .project-copy > div{
+  display:flex !important;
+  flex-direction:column !important;
+  height:100% !important;
+}
+
+/* Udemy mini points */
+#work .project-v21-points{
+  display:flex !important;
+  flex-wrap:wrap !important;
+  gap:7px !important;
+  margin-top:13px !important;
+}
+#work .project-v21-points span{
+  padding:7px 9px !important;
+  border-radius:10px !important;
+  background:rgba(21,21,21,.045) !important;
+  color:var(--muted) !important;
+  font-size:9px !important;
+  font-weight:750 !important;
+}
+
+/* Featured project visual variation */
+#work .project-v21-featured:nth-child(1){
+  background:linear-gradient(180deg,var(--surface),#f5f3ed) !important;
+}
+#work .project-v21-featured:nth-child(2){
+  background:linear-gradient(180deg,#f1f1ff,var(--surface)) !important;
+}
+
+/* Responsive */
+@media(max-width:1100px){
+  #work .project-v21-featured{
+    grid-column:span 6 !important;
+  }
+  #work .project-v21-compact{
+    grid-column:span 6 !important;
+  }
+}
+@media(max-width:720px){
+  #work .projects{
+    grid-template-columns:1fr !important;
+  }
+  #work .project-v21-featured,
+  #work .project-v21-compact{
+    grid-column:auto !important;
+    min-height:auto !important;
+  }
+  #work .project-v21-featured .project-visual,
+  #work .project-v21-compact .project-visual{
+    height:235px !important;
+    min-height:235px !important;
+  }
+  #work .project-v21-featured .project-copy,
+  #work .project-v21-compact .project-copy{
+    padding:20px !important;
+  }
+}
+</style><style>
+/* ===== V22 Projects — certificate-style, 2 per row ===== */
+
+#work{
+  background:transparent !important;
+  padding-top:92px !important;
+  padding-bottom:96px !important;
+}
+
+#work .projects{
+  display:grid !important;
+  grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+  gap:22px !important;
+}
+
+#work .project-v22-card{
+  display:flex !important;
+  flex-direction:column !important;
+  overflow:hidden !important;
+  border:1px solid rgba(21,21,21,.10) !important;
+  border-radius:22px !important;
+  background:var(--surface) !important;
+  box-shadow:0 10px 28px rgba(20,20,24,.04) !important;
+  min-height:0 !important;
+  transform:none !important;
+  transition:transform .22s ease,border-color .22s ease,box-shadow .22s ease !important;
+}
+
+#work .project-v22-card:hover{
+  transform:translateY(-4px) !important;
+  border-color:rgba(93,98,255,.22) !important;
+  box-shadow:0 18px 40px rgba(20,20,24,.07) !important;
+}
+
+#work .project-v22-card::before{
+  display:none !important;
+}
+
+/* Big image, same rhythm as certificate cards */
+#work .project-v22-card .project-visual{
+  position:relative !important;
+  width:100% !important;
+  height:330px !important;
+  min-height:330px !important;
+  padding:0 !important;
+  overflow:hidden !important;
+  border-radius:0 !important;
+  background:#eef1f5 !important;
+}
+
+#work .project-v22-card .project-visual img{
+  width:100% !important;
+  height:100% !important;
+  display:block !important;
+  object-fit:cover !important;
+  object-position:center !important;
+  transition:transform .45s ease !important;
+}
+
+#work .project-v22-card:hover .project-visual img{
+  transform:scale(1.02) !important;
+}
+
+#work .project-v22-number{
+  position:absolute;
+  top:16px;
+  right:16px;
+  z-index:5;
+  width:42px;
+  height:42px;
+  display:grid;
+  place-items:center;
+  border-radius:50%;
+  background:rgba(248,247,243,.92);
+  backdrop-filter:blur(10px);
+  border:1px solid rgba(21,21,21,.10);
+  color:var(--ink);
+  font-size:10px;
+  font-weight:850;
+}
+
+#work .project-visual-badge,
+#work .visual-label{
+  position:absolute !important;
+  left:16px !important;
+  top:16px !important;
+  right:auto !important;
+  bottom:auto !important;
+  padding:7px 10px !important;
+  border-radius:999px !important;
+  background:rgba(16,18,24,.72) !important;
+  backdrop-filter:blur(8px) !important;
+  color:#fff !important;
+  font-size:9px !important;
+  line-height:1 !important;
+  font-weight:800 !important;
+  letter-spacing:.06em !important;
+}
+
+/* Copy block */
+#work .project-v22-card .project-copy{
+  display:block !important;
+  padding:22px 23px 24px !important;
+}
+
+#work .project-v22-card .project-copy > div:last-child{
+  display:flex !important;
+  flex-direction:column !important;
+  min-height:260px !important;
+  height:100% !important;
+}
+
+#work .project-v22-card .project-type{
+  margin:0 0 9px !important;
+  color:var(--accent) !important;
+  font-size:9.5px !important;
+  font-weight:850 !important;
+  letter-spacing:.07em !important;
+  line-height:1.3 !important;
+}
+
+#work .project-v22-card h3{
+  margin:0 0 12px !important;
+  color:var(--ink) !important;
+  font-size:clamp(1.35rem,2vw,1.8rem) !important;
+  line-height:1.08 !important;
+  letter-spacing:-.035em !important;
+}
+
+#work .project-v22-card .project-copy p:not(.project-type){
+  margin:0 !important;
+  color:var(--muted) !important;
+  font-size:13px !important;
+  line-height:1.65 !important;
+}
+
+/* Tags */
+#work .project-v22-card .tags,
+#work .project-v22-points{
+  display:flex !important;
+  flex-wrap:wrap !important;
+  gap:7px !important;
+  margin-top:18px !important;
+}
+
+#work .project-v22-card .tags span,
+#work .project-v22-points span{
+  display:inline-flex !important;
+  align-items:center !important;
+  min-height:30px !important;
+  padding:6px 10px !important;
+  border-radius:999px !important;
+  background:rgba(93,98,255,.055) !important;
+  border:1px solid rgba(93,98,255,.13) !important;
+  color:#565bc8 !important;
+  font-size:9.5px !important;
+  font-weight:700 !important;
+}
+
+/* Action button */
+#work .project-v22-card .project-actions{
+  margin-top:auto !important;
+  padding-top:20px !important;
+}
+
+#work .project-v22-card .project-action{
+  display:inline-flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  padding:10px 15px !important;
+  border-radius:12px !important;
+  border:1px solid rgba(21,21,21,.13) !important;
+  background:transparent !important;
+  color:var(--ink) !important;
+  opacity:1 !important;
+  font-size:11px !important;
+  font-weight:800 !important;
+  cursor:default !important;
+}
+
+/* Responsive */
+@media(max-width:900px){
+  #work .projects{
+    grid-template-columns:1fr !important;
+  }
+  #work .project-v22-card .project-visual{
+    height:300px !important;
+    min-height:300px !important;
+  }
+}
+
+@media(max-width:560px){
+  #work .project-v22-card{
+    border-radius:20px !important;
+  }
+  #work .project-v22-card .project-visual{
+    height:230px !important;
+    min-height:230px !important;
+  }
+  #work .project-v22-card .project-copy{
+    padding:19px !important;
+  }
+  #work .project-v22-card .project-copy > div:last-child{
+    min-height:0 !important;
+  }
+}
+</style><style>
+/* ===== V23 — Project images always on top ===== */
+#work .project-v22-card{
+  display:flex !important;
+  flex-direction:column !important;
+}
+
+#work .project-v22-card > .project-visual{
+  order:0 !important;
+  width:100% !important;
+  flex:0 0 auto !important;
+}
+
+#work .project-v22-card > .project-copy{
+  order:1 !important;
+  width:100% !important;
+  flex:1 1 auto !important;
+}
+
+/* Always show the upper part of project visuals first */
+#work .project-v22-card .project-visual img{
+  object-position:center top !important;
+}
+</style><meta content="index, follow, max-image-preview:large" name="robots"/><meta content="Bora Şenel" name="author"/><style>
+/* V26 performance-only safeguards */
+img{max-width:100%;}
+#work .project-visual img,#certificates img,#recommendations img{content-visibility:auto;}
+</style><style>
+/* ===== V27 Book cover render fix ===== */
+#recommendations .media-cover img,
+#recommendations .book-cover img{
+  content-visibility:visible !important;
+  visibility:visible !important;
+  opacity:1 !important;
+  display:block !important;
+  width:100% !important;
+  height:100% !important;
+  object-fit:cover !important;
+  object-position:center !important;
+}
+#recommendations .book-cover{
+  background:var(--surface-2) !important;
+}
+</style></head>
+<body>
+<div aria-hidden="true" class="noise"></div>
+<header class="site-header">
+<a aria-label="Ana sayfa" class="brand" href="#top">
+<span class="brand-mark">BŞ</span>
+<span class="brand-name">Bora Şenel</span>
+</a>
+<nav aria-label="Ana menü" class="nav">
+<a href="#about">Hakkımda</a>
+<a href="#work">Projeler</a>
+<a href="#skills">Yetenekler</a>
+<a href="#certificates">Belgeler</a>
+<a href="#writing">Yazılar</a>
+<a href="#recommendations">Öneriler</a>
+</nav>
+<div class="header-actions">
+<a class="button button-small button-dark" href="#contact">İletişime geç <span>↗</span></a>
+</div>
+<button aria-label="Menüyü aç" class="menu-toggle" type="button">Menü</button>
+</header>
+<main id="top">
+<section class="hero shell reveal">
+<div class="hero-copy">
+<div class="availability"><span class="pulse"></span> Yeni fikirlere ve projelere açığım</div>
+<p class="kicker">QA · AI · SOFTWARE · DATA · PRODUCT</p>
+<h1>Teknolojiyi sadece <em>çalıştırmıyorum.</em><br/>Nasıl daha iyi çalışacağını da düşünüyorum.</h1>
+<p class="hero-lead">Yönetim Bilişim Sistemleri öğrencisi ve Bilgisayar Mühendisliği yan dal öğrencisiyim. QA, yazılım geliştirme, veri analizi ve yapay zekâyı gerçek problemlere dokunan projelerde bir araya getiriyorum. Teknik yetkinliklerimin yanında ürün yönetimi ve Product Owner yaklaşımına da ilgi duyuyor; kullanıcı, iş ve teknoloji arasındaki bağlantıyı daha iyi kurmaya çalışıyorum.</p>
+<div class="hero-actions">
+<a class="button button-primary" href="#work">Projeleri gör <span>↘</span></a>
+<a class="button button-ghost" href="assets/docs/Bora_Senel_CV_TR.pdf" rel="noreferrer" target="_blank">CV'yi aç ↗</a>
+</div>
+</div>
+<div aria-label="Bora Şenel BS hero görseli" class="hero-visual">
+<div class="orbit orbit-one"></div>
+<div class="orbit orbit-two"></div>
+<div class="hero-bs-stage">
+<img alt="BS harfleri içinde şehir manzarası ve önde Bora Şenel portresi" class="hero-bs-transparent" decoding="async" fetchpriority="high" height="1371" loading="eager" src="assets/hero/bs-reference-transparent.webp" width="1900"/>
+</div>
+</div>
+</section>
+<div aria-hidden="true" class="energy-ticker">
+<div class="track">
+<span>AI ✦ SOFTWARE ✦ PRODUCT ✦ QA ✦ ENTREPRENEURSHIP ✦ BUILDING THINGS THAT WORK ✦</span>
+<span>AI ✦ SOFTWARE ✦ PRODUCT ✦ QA ✦ ENTREPRENEURSHIP ✦ BUILDING THINGS THAT WORK ✦</span>
+</div>
+</div>
+<section aria-label="Kısa bilgiler" class="signal-strip shell reveal">
+<div class="signal"><span>01</span><strong>3.67 / 4.00</strong><small>GANO</small></div>
+<div class="signal"><span>02</span><strong>C1</strong><small>İngilizce yerleştirme sonucu</small></div>
+<div class="signal"><span>03</span><strong>Erasmus+</strong><small>Kodolányi János University</small></div>
+<div class="signal"><span>04</span><strong>Meta · Xbox</strong><small>QA deneyimi</small></div>
+</section>
+<section class="section shell reveal" id="about">
+<div class="section-heading">
+<p class="eyebrow">01 — Hakkımda</p>
+<h2 class="about-heading-inline">Kısa bir CV. Uzun bir merak listesi.</h2>
+</div>
+<div class="about-grid">
+<aside class="profile-panel sticky-card">
+<div class="profile-name">Bora Şenel</div>
+<p>QA · AI · Software · Data<br/>Product Management / Product Owner yönelimi</p>
+<dl class="profile-list">
+<div><dt>Konum</dt><dd>İzmir, Türkiye</dd></div>
+<div><dt>Eğitim</dt><dd>Düzce Üniversitesi</dd></div>
+<div><dt>Program</dt><dd>Yönetim Bilişim Sistemleri</dd></div>
+<div><dt>Yan dal</dt><dd>Bilgisayar Mühendisliği</dd></div>
+</dl>
+<div class="profile-links">
+<a href="https://linkedin.com/in/borasenel" rel="noopener noreferrer" target="_blank">LinkedIn ↗</a>
+<a href="https://github.com/elverpool" rel="noopener noreferrer" target="_blank">GitHub ↗</a>
+</div>
+</aside>
+<div class="story-column">
+<p class="big-copy">Yazılım geliştirme, kalite güvencesi, veri analizi ve yapay zekâ alanlarında proje üretirken; teknik çözümlerin yalnızca çalışmasına değil, <strong>doğru ihtiyaca cevap vermesine ve gerçek bir kullanıcı değeri üretmesine</strong> de odaklanıyorum. Teknik geçmişimi; kullanıcı ihtiyacını, iş hedeflerini ve ürün süreçlerini daha iyi anlayabildiğim çok yönlü bir kariyer yaklaşımıyla geliştirmeye devam ediyorum.</p>
+<div class="timeline">
+<article class="timeline-item">
+<div class="timeline-date">06/2023 — Şimdi</div>
+<div>
+<div class="experience-real-logo">
+<img alt="Meta resmi logosu" decoding="async" fetchpriority="low" loading="lazy" referrerpolicy="no-referrer" src="https://upload.wikimedia.org/wikipedia/commons/7/7b/Meta_Platforms_Inc._logo.svg"/>
+</div>
+<h3>QA Tester <span>· Meta</span></h3>
+<p>Facebook, Threads ve Instagram için iOS, Android ve web ortamlarında fonksiyonel, regresyon ve UI testleri yürüttüm; hataları yeniden üretilebilir adımlarla raporlayıp doğrulama süreçlerini takip ettim. Bu deneyim, kullanıcıyı etkileyen problemleri sistematik biçimde analiz etme, önceliklendirme ve uluslararası ekiplerle net iletişim kurma becerilerimi geliştirdi.</p>
+</div>
+</article>
+<article class="timeline-item">
+<div class="timeline-date">06/2022 — Şimdi</div>
+<div>
+<div class="experience-real-logo">
+<img alt="Tester Work resmi logosu" decoding="async" fetchpriority="low" loading="lazy" referrerpolicy="no-referrer" src="https://testerwork.com/wp-content/uploads/2020/08/Logo-Dark.png"/>
+</div>
+<h3>Freelance Tester <span>· Tester Work</span></h3>
+<p>Farklı web ve mobil ürünlerde test senaryoları tasarlayıp yürüttüm; bulguları yapılandırılmış bug raporlarına dönüştürdüm. Birbirinden farklı ürün ve gereksinimlere hızlı adapte olmak, kullanıcı akışlarını eleştirel gözle incelemek ve teknik olmayan bir problemi geliştirici için uygulanabilir bilgiye çevirmek konusunda deneyim kazandım.</p>
+</div>
+</article>
+<article class="timeline-item">
+<div class="timeline-date">06/2023 — 09/2023</div>
+<div>
+<div class="experience-real-logo">
+<img alt="Xbox resmi logosu" decoding="async" fetchpriority="low" loading="lazy" referrerpolicy="no-referrer" src="https://upload.wikimedia.org/wikipedia/commons/e/e5/Xbox_Logo.svg"/>
+</div>
+<h3>QA Tester <span>· Microsoft Xbox Team</span></h3>
+<p>Oyun içi QA, regresyon doğrulama ve performans odaklı test süreçlerinde görev aldım; Jira ve TestRail üzerinden test dokümantasyonu oluşturdum. Bu süreç, kaliteyi yalnızca hata bulmak olarak değil; kullanıcı deneyimi, ürün kararlılığı ve ekipler arası geri bildirim döngüsünün bir parçası olarak değerlendirmemi sağladı.</p>
+</div>
+</article>
+<article class="timeline-item education-item">
+<div class="timeline-date">2025 — 2026</div>
+<div>
+<div class="experience-real-logo">
+<img alt="Erasmus+ resmi logosu" decoding="async" fetchpriority="low" loading="lazy" referrerpolicy="no-referrer" src="https://upload.wikimedia.org/wikipedia/commons/1/1e/Erasmus%2B_Logo.svg"/>
+</div>
+<h3>Erasmus+ <span>· Kodolányi János Egyetem, Hungary</span></h3>
+<p>Uluslararası bir akademik ortamda İngilizce iletişim kurarak farklı kültürlerden öğrencilerle çalışma deneyimi edindim. Yeni ortamlara uyum sağlama, farklı bakış açılarıyla ortak çalışma ve bağımsız problem çözme becerilerimi güçlendirdi.</p>
+</div>
+</article>
+<article class="timeline-item education-item">
+<div class="timeline-date">Lisans</div>
+<div>
+<h3>Yönetim Bilişim Sistemleri <span>· Düzce Üniversitesi</span></h3>
+<p>GANO: 3.67 / 4.00 · Beklenen mezuniyet: 2028.</p>
+</div>
+</article>
+<article class="timeline-item education-item">
+<div class="timeline-date">Yan Dal</div>
+<div>
+<h3>Bilgisayar Mühendisliği <span>· Düzce Üniversitesi</span></h3>
+<p>Yönetim Bilişim Sistemleri lisans programına ek olarak devam ediyorum.</p>
+</div>
+</article>
+</div>
+</div>
+</div>
+</section>
+<div class="below-about-marker">
+<span>Selected chapters</span>
+<span>Work · Skills · Writing · Personal</span>
+</div><section class="section section-work reveal projects-reference-layout" id="work"><div class="section-micro-label">SELECTED WORK / 06 PROJECTS</div>
+<div class="shell">
+<div class="section-heading split-heading">
+<div>
+<p class="eyebrow">02 — Projeler</p>
+<h2 class="work-heading-inline">Yaptıklarım ve deneyimleyerek öğrendiklerim.</h2>
+</div>
+</div>
+<div class="projects"><article class="project project-v22-card">
+<div class="project-visual project-image-visual">
+<img alt="Kişisel Yapay Zekâ Asistanı proje görseli" decoding="async" fetchpriority="low" height="788" loading="lazy" src="assets/projects/project-ai-assistant.webp" width="1400"/>
+<span class="project-visual-badge">LLM / AUTOMATION</span>
+<span class="project-v22-number">01</span></div>
+<div class="project-copy">
+<div>
+<p class="project-type">AI · LLM · AUTOMATION</p>
+<h3>Kişisel Yapay Zekâ Asistanı</h3>
+<p>Tekrar eden kişisel işleri tek bir akışta toplamak için LLM tabanlı bir asistan prototipi geliştirdim. Prompt akışları, bağlama göre yanıt üretimi ve görev otomasyonu üzerine çalıştım.</p>
+<div class="tags"><span>LLM</span><span>Prompt Engineering</span><span>Automation</span></div>
+<div aria-label="Proje bağlantıları" class="project-actions"><button aria-disabled="true" class="project-action is-disabled" disabled="" title="GitHub bağlantısı daha sonra eklenecek" type="button">GitHub ↗</button></div>
+</div>
+</div>
+</article><article class="project udemy-product-project project-v22-card" data-project="udemy-product-management">
+<div class="project-visual project-image-visual udemy-product-visual">
+<img alt="Udemy dijital ürün yönetimi raporundaki wireframe, kullanıcı akışı ve roadmap görselleri" decoding="async" fetchpriority="low" height="788" loading="lazy" src="assets/projects/udemy-product-management-case-study.webp" width="1400"/>
+<div class="visual-label">PRODUCT STRATEGY / UX / ROADMAP</div>
+<span class="project-v22-number">02</span></div>
+<div class="project-copy">
+<div>
+<p class="project-type">PRODUCT MANAGEMENT · UX · GROWTH STRATEGY</p>
+<h3>Udemy — Dijital Ürün Yönetimi &amp; Büyüme Stratejisi</h3>
+<p>Udemy'yi kullanıcı ihtiyacı, ürün stratejisi ve büyüme metrikleriyle birlikte ele aldığım kapsamlı bir ürün yönetimi çalışması. Persona, wireframe, user story, roadmap ve OKR/KPI yapısını uçtan uca kurguladım.</p>
+<div class="tags">
+<span>Product Strategy</span><span>UX Audit</span><span>Persona</span><span>Wireframing</span>
+<span>Roadmap</span><span>OKR / KPI</span><span>HEART</span><span>MoSCoW</span>
+</div>
+<div class="project-v22-points">
+<span>Outcome Skoru</span>
+<span>Premium Sertifikasyon</span>
+<span>7 Günlük Aktivasyon Planı</span>
+</div>
+<div aria-label="Proje bağlantıları" class="project-actions"><button aria-disabled="true" class="project-action is-disabled" disabled="" title="Rapor bağlantısı daha sonra eklenecek" type="button">Rapor ↗</button></div>
+</div>
+</div>
+</article><article class="project project-v22-card">
+<div class="project-visual project-image-visual">
+<img alt="Anket Analiz Aracı proje görseli" decoding="async" fetchpriority="low" height="788" loading="lazy" src="assets/projects/project-survey-analysis.webp" width="1400"/>
+<span class="project-visual-badge">DESKTOP / DATA</span>
+<span class="project-v22-number">03</span></div>
+<div class="project-copy">
+<div>
+<p class="project-type">C# · .NET · DATA ANALYSIS</p>
+<h3>Anket Analiz Aracı</h3>
+<p>Excel tabanlı anket analizini hızlandırmak için C#/.NET ile masaüstü bir araç geliştirdim. Grup analizi, ters puanlama, raporlama ve grafik üretimini tek akışta topladım.</p>
+<div class="tags"><span>C#</span><span>WinForms</span><span>.NET</span></div>
+<div aria-label="Proje bağlantıları" class="project-actions"><button aria-disabled="true" class="project-action is-disabled" disabled="" title="GitHub bağlantısı daha sonra eklenecek" type="button">GitHub ↗</button></div>
+</div>
+</div>
+</article><article class="project project-v22-card">
+<div class="project-visual project-image-visual">
+<img alt="Diyabet Tahmini — KNN &amp; Random Forest proje görseli" decoding="async" fetchpriority="low" height="860" loading="lazy" src="assets/projects/project-diabetes-ml.webp" width="1400"/>
+<span class="project-visual-badge">MACHINE LEARNING</span>
+<span class="project-v22-number">04</span></div>
+<div class="project-copy">
+<div>
+<p class="project-type">PYTHON · MACHINE LEARNING · OPTIMIZATION</p>
+<h3>Diyabet Tahmini — KNN &amp; Random Forest</h3>
+<p>PIDD veri setinde KNN ve Random Forest modellerini karşılaştırdım; GridSearchCV ile hiperparametre optimizasyonu uyguladım. Random Forest ile %90.61 accuracy ve %89.09 recall elde ettim.</p>
+<div class="tags"><span>Python</span><span>Random Forest</span><span>GridSearchCV</span></div>
+<div aria-label="Proje bağlantıları" class="project-actions"><button aria-disabled="true" class="project-action is-disabled" disabled="" title="GitHub bağlantısı daha sonra eklenecek" type="button">GitHub ↗</button></div>
+</div>
+</div>
+</article><article class="project project-v22-card">
+<div class="project-visual project-image-visual">
+<img alt="PDF Sınav Sonuç Parser proje görseli" decoding="async" fetchpriority="low" height="860" loading="lazy" src="assets/projects/project-pdf-parser.webp" width="1400"/>
+<span class="project-visual-badge">PARSING / REPORTING</span>
+<span class="project-v22-number">05</span></div>
+<div class="project-copy">
+<div>
+<p class="project-type">DATA EXTRACTION · PDF PARSING · AUTOMATION</p>
+<h3>PDF Sınav Sonuç Parser</h3>
+<p>Farklı sınav sonuç PDF'lerinden öğrenci ve net bilgilerini otomatik çıkarıp CSV'ye dönüştüren tekrar kullanılabilir bir ayrıştırma akışı geliştirdim.</p>
+<div class="tags"><span>PDF Parsing</span><span>CSV</span><span>Automation</span></div>
+<div aria-label="Proje bağlantıları" class="project-actions"><button aria-disabled="true" class="project-action is-disabled" disabled="" title="GitHub bağlantısı daha sonra eklenecek" type="button">GitHub ↗</button></div>
+</div>
+</div>
+</article><article class="project vesta-project project-v22-card" data-project="vesta-atelier">
+<div class="vesta-visual project-visual project-image-visual">
+<img alt="Vesta Atelier Shopify mağazası, VestaGPT chatbot ve arama görünürlüğü proje ekranları" decoding="async" fetchpriority="low" height="858" loading="lazy" src="assets/projects/vesta-atelier-case-study.webp" width="1400"/>
+<div class="visual-label">E-COMMERCE / GROWTH</div>
+<span class="project-v22-number">06</span></div>
+<div class="project-copy">
+<div>
+<p class="project-type">E-COMMERCE · SEO · DIGITAL GROWTH</p>
+<h3>Vesta Atelier — E-Ticaret &amp; Dijital Pazarlama</h3>
+<p>Vesta Atelier için Shopify mağazası, SEO, sosyal medya içerik planı, analitik ve VestaGPT'yi tek bir dijital marka deneyimi altında birleştirdim.</p>
+<div class="tags">
+<span>Shopify</span><span>SEO</span><span>Digital Marketing</span><span>Analytics</span><span>VestaGPT</span><span>Instagram</span><span>Pinterest</span>
+</div>
+<div aria-label="Proje bağlantıları" class="project-actions"><button aria-disabled="true" class="project-action is-disabled" disabled="" title="Rapor bağlantısı daha sonra eklenecek" type="button">Rapor ↗</button></div>
+</div>
+</div>
+</article></div>
+</div>
+</section>
+<section class="section shell reveal" id="skills"><div class="section-micro-label">CAPABILITIES / MULTIDISCIPLINARY</div>
+<div class="section-heading split-heading">
+<div>
+<p class="eyebrow">03 — Yetenekler</p>
+<h2 class="skills-heading-inline">Teknik derinlik, ürün bakış açısıyla birleşince.</h2>
+</div>
+</div>
+<div class="skill-grid">
+<article class="skill-card skill-bento-1 skill-card-redesign">
+<div class="skill-card-top">
+<span class="skill-no">01 / QUALITY</span>
+<span class="skill-symbol">QA</span>
+</div>
+<div class="skill-main">
+<h3>Test &amp; QA</h3>
+<p>Bir ürünün yalnızca çalışmasını değil, farklı senaryolarda güvenilir ve tutarlı bir deneyim sunmasını sağlamaya odaklanıyorum.</p>
+</div>
+<div class="skill-chip-list">
+<span>Functional Testing</span><span>Regression</span><span>UI Testing</span>
+<span>Web / Mobile</span><span>Bug Reporting</span><span>Test Case Design</span>
+</div>
+<div class="skill-footer"><strong>Araçlar</strong><span>Jira · TestRail · Postman</span></div>
+</article>
+<article class="skill-card skill-bento-2 skill-card-redesign">
+<div class="skill-card-top">
+<span class="skill-no">02 / INTELLIGENCE</span>
+<span class="skill-symbol">AI</span>
+</div>
+<div class="skill-main">
+<h3>AI &amp; Automation</h3>
+<p>LLM'leri yalnızca sohbet aracı olarak değil; görevleri yapılandıran, süreçleri hızlandıran ve fikirleri çalışan prototiplere dönüştüren bir araç olarak kullanıyorum.</p>
+</div>
+<div class="skill-chip-list">
+<span>LLM</span><span>Prompt Engineering</span><span>AI Prototyping</span>
+<span>Prompt Flows</span><span>Task Automation</span><span>AI Assistants</span>
+</div>
+<div class="skill-footer"><strong>Odak</strong><span>LLM · Automation · Prototyping</span></div>
+</article>
+<article class="skill-card skill-bento-3 skill-card-redesign">
+<div class="skill-card-top">
+<span class="skill-no">03 / BUILD</span>
+<span class="skill-symbol code-symbol">&lt;/&gt;</span>
+</div>
+<div class="skill-main">
+<h3>Software &amp; Data</h3>
+<p>Veriyi işleyebilen, otomasyon kurabilen ve gerçek bir ihtiyaca karşılık veren uygulamalar geliştirmek için yazılım ve veri araçlarını birlikte kullanıyorum.</p>
+</div>
+<div class="skill-chip-list">
+<span>C# / .NET</span><span>Python</span><span>SQL</span>
+<span>Pandas</span><span>Scikit-learn</span><span>API</span><span>Git / GitHub</span>
+</div>
+<div class="skill-footer"><strong>Teknoloji</strong><span>C# · Python · SQL · Data</span></div>
+</article>
+<article class="skill-card skill-bento-4 skill-card-redesign skill-product-card">
+<div class="skill-card-top">
+<span class="skill-no">04 / PRODUCT</span>
+<span class="skill-symbol">PO</span>
+</div>
+<div class="skill-main">
+<h3>Ürün &amp; Proje Yönetimi</h3>
+<p>Teknik bilgiyle iş ihtiyacını bir araya getirerek; neyin yapılacağından önce neden yapılması gerektiğini anlamaya, işleri önceliklendirmeye ve ekiplerin ortak hedef etrafında ilerlemesine odaklanıyorum.</p>
+</div>
+<div class="skill-chip-list product-chips">
+<span>Product Owner</span><span>Product Management</span><span>Agile / Scrum</span>
+<span>Backlog Management</span><span>Sprint Planning</span><span>User Stories</span>
+<span>Stakeholder Management</span><span>Roadmapping</span>
+</div>
+<div class="skill-footer"><strong>Yaklaşım</strong><span>Problem → Öncelik → Teslim → Değer</span></div>
+</article>
+</div>
+</section>
+<section class="section section-certificates reveal" id="certificates">
+<div class="section-micro-label">LEARNING ARCHIVE / ALL CREDENTIALS</div>
+<div class="shell">
+<div class="section-heading split-heading">
+<div>
+<p class="eyebrow">04 — Belgeler &amp; Eğitimler</p>
+<h2 class="cert-heading-inline">Her belge,<span>ayrı bir öğrenme izi.</span></h2>
+</div>
+</div>
+<div class="certificate-summary-row">
+<span><b>14</b> benzersiz belge / eğitim kaydı</span>
+<span><b>8</b> Google AI sertifikası</span>
+<span><b>2</b> YÖK Veri Analizi Okulu belgesi</span>
+</div>
+<div class="cert-reference-grid">
+<article class="cert-reference-card">
+<button class="certificate-image-button cert-reference-image" data-cert-image="assets/certificates/yok-ai-ml-success.webp" data-cert-title="Yapay Zekâ ve Makine Öğrenmesi — Başarı Belgesi" type="button">
+<img alt="Yapay Zekâ ve Makine Öğrenmesi — Başarı Belgesi belgesi" decoding="async" fetchpriority="low" height="989" loading="lazy" src="assets/certificates/yok-ai-ml-success.webp" width="1400"/>
+<span class="certificate-zoom-label">Büyüt ↗</span>
+</button>
+<div class="cert-reference-copy">
+<div class="cert-reference-type">BAŞARI BELGESİ · 2025–2026</div>
+<h3>Yapay Zekâ ve Makine Öğrenmesi — Başarı Belgesi</h3>
+<p>YÖK · Veri Analizi Okulu</p>
+<div class="cert-reference-skills"><span>Yapay zekâ temelleri</span><span>Makine öğrenmesi</span><span>Veri analizi yaklaşımı</span></div>
+<a href="https://belge.verianaliziokulu.com/216268db-f94b-4874-8342-76bcb08b32d5" rel="noopener noreferrer" target="_blank">Belgeyi doğrula ↗</a>
+</div>
+</article>
+<article class="cert-reference-card">
+<button class="certificate-image-button cert-reference-image" data-cert-image="assets/certificates/yok-ai-ml-participation.webp" data-cert-title="Yapay Zekâ ve Makine Öğrenmesi — Katılım Belgesi" type="button">
+<img alt="Yapay Zekâ ve Makine Öğrenmesi — Katılım Belgesi belgesi" decoding="async" fetchpriority="low" height="989" loading="lazy" src="assets/certificates/yok-ai-ml-participation.webp" width="1400"/>
+<span class="certificate-zoom-label">Büyüt ↗</span>
+</button>
+<div class="cert-reference-copy">
+<div class="cert-reference-type">KATILIM BELGESİ · 2025–2026</div>
+<h3>Yapay Zekâ ve Makine Öğrenmesi — Katılım Belgesi</h3>
+<p>YÖK · Veri Analizi Okulu</p>
+<div class="cert-reference-skills"><span>AI/ML eğitim süreci</span><span>Veri analizi odaklı öğrenme</span><span>Düzenli program katılımı</span></div>
+<a href="https://belge.verianaliziokulu.com/50033105-dc6c-4d54-9546-8ca2fe2e9643" rel="noopener noreferrer" target="_blank">Belgeyi doğrula ↗</a>
+</div>
+</article>
+<article class="cert-reference-card">
+<button class="certificate-image-button cert-reference-image" data-cert-image="assets/certificates/ibm-kodluyoruz-cyberstart.webp" data-cert-title="IBM ile Kodluyoruz: CyberStart" type="button">
+<img alt="IBM ile Kodluyoruz: CyberStart belgesi" decoding="async" fetchpriority="low" height="709" loading="lazy" src="assets/certificates/ibm-kodluyoruz-cyberstart.webp" width="1000"/>
+<span class="certificate-zoom-label">Büyüt ↗</span>
+</button>
+<div class="cert-reference-copy">
+<div class="cert-reference-type">KATILIM BELGESİ · 06.08.2024–29.09.2024</div>
+<h3>IBM ile Kodluyoruz: CyberStart</h3>
+<p>Kodluyoruz × IBM SkillsBuild</p>
+<div class="cert-reference-skills"><span>Siber güvenlik temelleri</span><span>Siber tehdit farkındalığı</span><span>Güvenlik bakış açısı</span></div>
+<a href="https://verified.sertifier.com/en/verify/34215015214203" rel="noopener noreferrer" target="_blank">Belgeyi doğrula ↗</a>
+</div>
+</article>
+<article class="cert-reference-card">
+<button class="certificate-image-button cert-reference-image" data-cert-image="assets/certificates/akbank-cybersecurity-101.webp" data-cert-title="Siber Güvenlik 101" type="button">
+<img alt="Siber Güvenlik 101 belgesi" decoding="async" fetchpriority="low" height="709" loading="lazy" src="assets/certificates/akbank-cybersecurity-101.webp" width="1000"/>
+<span class="certificate-zoom-label">Büyüt ↗</span>
+</button>
+<div class="cert-reference-copy">
+<div class="cert-reference-type">KATILIM BELGESİ · 30–31 Ekim 2025</div>
+<h3>Siber Güvenlik 101</h3>
+<p>Akbank Gençlik Akademisi × Microfon</p>
+<div class="cert-reference-skills"><span>Temel siber güvenlik kavramları</span><span>Dijital güvenlik farkındalığı</span><span>Tehdit ve saldırı farkındalığı</span></div>
+<a href="assets/certificates/akbank-cybersecurity-101.pdf" rel="noreferrer noopener" target="_blank">Orijinal belgeyi aç ↗</a>
+</div>
+</article>
+<article class="cert-reference-card">
+<button class="certificate-image-button cert-reference-image" data-cert-image="assets/certificates/google-ai-professional.webp" data-cert-title="Google AI Professional Certificate" type="button">
+<img alt="Google AI Professional Certificate belgesi" decoding="async" fetchpriority="low" height="1082" loading="lazy" src="assets/certificates/google-ai-professional.webp" width="1400"/>
+<span class="certificate-zoom-label">Büyüt ↗</span>
+</button>
+<div class="cert-reference-copy">
+<div class="cert-reference-type">PROFESSIONAL CERTIFICATE · 21 Şubat 2026</div>
+<h3>Google AI Professional Certificate</h3>
+<p>Google · Coursera</p>
+<div class="cert-reference-skills"><span>Prompting</span><span>AI çıktısı değerlendirme</span><span>Sorumlu AI kullanımı</span></div>
+<a href="https://coursera.org/verify/professional-cert/ZH9WWFF07KRM" rel="noopener noreferrer" target="_blank">Belgeyi doğrula ↗</a>
+</div>
+</article>
+<article class="cert-reference-card">
+<button class="certificate-image-button cert-reference-image" data-cert-image="assets/certificates/google-ai-fundamentals.webp" data-cert-title="AI Fundamentals" type="button">
+<img alt="AI Fundamentals belgesi" decoding="async" fetchpriority="low" height="1020" loading="lazy" src="assets/certificates/google-ai-fundamentals.webp" width="1320"/>
+<span class="certificate-zoom-label">Büyüt ↗</span>
+</button>
+<div class="cert-reference-copy">
+<div class="cert-reference-type">COURSE CERTIFICATE · 21 Şubat 2026</div>
+<h3>AI Fundamentals</h3>
+<p>Google · Coursera</p>
+<div class="cert-reference-skills"><span>AI temel kavramları</span><span>Etkili prompting</span><span>Çıktı değerlendirme</span></div>
+<a href="https://coursera.org/verify/1GZNYVC1565V" rel="noopener noreferrer" target="_blank">Belgeyi doğrula ↗</a>
+</div>
+</article>
+<article class="cert-reference-card">
+<button class="certificate-image-button cert-reference-image" data-cert-image="assets/certificates/google-ai-brainstorming-planning.webp" data-cert-title="AI for Brainstorming and Planning" type="button">
+<img alt="AI for Brainstorming and Planning belgesi" decoding="async" fetchpriority="low" height="1020" loading="lazy" src="assets/certificates/google-ai-brainstorming-planning.webp" width="1320"/>
+<span class="certificate-zoom-label">Büyüt ↗</span>
+</button>
+<div class="cert-reference-copy">
+<div class="cert-reference-type">COURSE CERTIFICATE · 21 Şubat 2026</div>
+<h3>AI for Brainstorming and Planning</h3>
+<p>Google · Coursera</p>
+<div class="cert-reference-skills"><span>Fikir üretimi</span><span>Planlama</span><span>Görev yapılandırma</span></div>
+<a href="https://coursera.org/verify/Q612FCSDZIFS" rel="noopener noreferrer" target="_blank">Belgeyi doğrula ↗</a>
+</div>
+</article>
+<article class="cert-reference-card">
+<button class="certificate-image-button cert-reference-image" data-cert-image="assets/certificates/google-ai-research-insights.webp" data-cert-title="AI for Research and Insights" type="button">
+<img alt="AI for Research and Insights belgesi" decoding="async" fetchpriority="low" height="1020" loading="lazy" src="assets/certificates/google-ai-research-insights.webp" width="1320"/>
+<span class="certificate-zoom-label">Büyüt ↗</span>
+</button>
+<div class="cert-reference-copy">
+<div class="cert-reference-type">COURSE CERTIFICATE · 21 Şubat 2026</div>
+<h3>AI for Research and Insights</h3>
+<p>Google · Coursera</p>
+<div class="cert-reference-skills"><span>AI destekli araştırma</span><span>Bilgi sentezi</span><span>İçgörü çıkarımı</span></div>
+<a href="https://coursera.org/verify/MSIMH2IFE9D6" rel="noopener noreferrer" target="_blank">Belgeyi doğrula ↗</a>
+</div>
+</article>
+<article class="cert-reference-card">
+<button class="certificate-image-button cert-reference-image" data-cert-image="assets/certificates/google-ai-writing-communication.webp" data-cert-title="AI for Writing and Communicating" type="button">
+<img alt="AI for Writing and Communicating belgesi" decoding="async" fetchpriority="low" height="1020" loading="lazy" src="assets/certificates/google-ai-writing-communication.webp" width="1320"/>
+<span class="certificate-zoom-label">Büyüt ↗</span>
+</button>
+<div class="cert-reference-copy">
+<div class="cert-reference-type">COURSE CERTIFICATE · 21 Şubat 2026</div>
+<h3>AI for Writing and Communicating</h3>
+<p>Google · Coursera</p>
+<div class="cert-reference-skills"><span>AI destekli yazım</span><span>Metin düzenleme</span><span>Özetleme</span></div>
+<a href="https://coursera.org/verify/VRJDSTT7DSAQ" rel="noopener noreferrer" target="_blank">Belgeyi doğrula ↗</a>
+</div>
+</article>
+<article class="cert-reference-card">
+<button class="certificate-image-button cert-reference-image" data-cert-image="assets/certificates/google-ai-content-creation.webp" data-cert-title="AI for Content Creation" type="button">
+<img alt="AI for Content Creation belgesi" decoding="async" fetchpriority="low" height="1020" loading="lazy" src="assets/certificates/google-ai-content-creation.webp" width="1320"/>
+<span class="certificate-zoom-label">Büyüt ↗</span>
+</button>
+<div class="cert-reference-copy">
+<div class="cert-reference-type">COURSE CERTIFICATE · 21 Şubat 2026</div>
+<h3>AI for Content Creation</h3>
+<p>Google · Coursera</p>
+<div class="cert-reference-skills"><span>AI destekli içerik üretimi</span><span>İçerik fikirleştirme</span><span>Taslak geliştirme</span></div>
+<a href="https://coursera.org/verify/HSDPZCLI5UOP" rel="noopener noreferrer" target="_blank">Belgeyi doğrula ↗</a>
+</div>
+</article>
+<article class="cert-reference-card">
+<button class="certificate-image-button cert-reference-image" data-cert-image="assets/certificates/google-ai-data-analysis.webp" data-cert-title="AI for Data Analysis" type="button">
+<img alt="AI for Data Analysis belgesi" decoding="async" fetchpriority="low" height="1020" loading="lazy" src="assets/certificates/google-ai-data-analysis.webp" width="1320"/>
+<span class="certificate-zoom-label">Büyüt ↗</span>
+</button>
+<div class="cert-reference-copy">
+<div class="cert-reference-type">COURSE CERTIFICATE · 21 Şubat 2026</div>
+<h3>AI for Data Analysis</h3>
+<p>Google · Coursera</p>
+<div class="cert-reference-skills"><span>AI destekli veri analizi</span><span>Veri yorumlama</span><span>İçgörü üretimi</span></div>
+<a href="https://coursera.org/verify/42SXYIWHTNA2" rel="noopener noreferrer" target="_blank">Belgeyi doğrula ↗</a>
+</div>
+</article>
+<article class="cert-reference-card">
+<button class="certificate-image-button cert-reference-image" data-cert-image="assets/certificates/google-ai-app-building.webp" data-cert-title="AI for App Building" type="button">
+<img alt="AI for App Building belgesi" decoding="async" fetchpriority="low" height="1020" loading="lazy" src="assets/certificates/google-ai-app-building.webp" width="1320"/>
+<span class="certificate-zoom-label">Büyüt ↗</span>
+</button>
+<div class="cert-reference-copy">
+<div class="cert-reference-type">COURSE CERTIFICATE · 21 Şubat 2026</div>
+<h3>AI for App Building</h3>
+<p>Google · Coursera</p>
+<div class="cert-reference-skills"><span>AI destekli prototipleme</span><span>Uygulama geliştirme yaklaşımı</span><span>AI ile kodlama</span></div>
+<a href="https://coursera.org/verify/62H4FILZE6BW" rel="noopener noreferrer" target="_blank">Belgeyi doğrula ↗</a>
+</div>
+</article>
+<article class="cert-reference-card">
+<button class="certificate-image-button cert-reference-image" data-cert-image="assets/certificates/erasmus-ols-english-placement.webp" data-cert-title="English Placement Test — C1 Course Recommendation" type="button">
+<img alt="English Placement Test — C1 Course Recommendation belgesi" decoding="async" fetchpriority="low" height="990" loading="lazy" src="assets/certificates/erasmus-ols-english-placement.webp" width="1400"/>
+<span class="certificate-zoom-label">Büyüt ↗</span>
+</button>
+<div class="cert-reference-copy">
+<div class="cert-reference-type">PLACEMENT RESULT · 21 Ekim 2025</div>
+<h3>English Placement Test — C1 Course Recommendation</h3>
+<p>Erasmus+ Online Language Support (OLS)</p>
+<div class="cert-reference-skills"><span>İngilizce seviye yerleştirme</span><span>C1 düzeyinde kurs önerisi</span><span>İleri düzey dil öğrenimine hazırbulunuşluk</span></div>
+<a href="assets/certificates/erasmus-ols-english-placement.pdf" rel="noreferrer noopener" target="_blank">Orijinal belgeyi aç ↗</a>
+</div>
+</article>
+<article class="cert-reference-card">
+<button class="certificate-image-button cert-reference-image" data-cert-image="assets/certificates/nvidia-ai-infrastructure-webinar.webp" data-cert-title="Get Ready for AI Infrastructure Certification" type="button">
+<img alt="Get Ready for AI Infrastructure Certification belgesi" decoding="async" fetchpriority="low" height="543" loading="lazy" src="assets/certificates/nvidia-ai-infrastructure-webinar.webp" width="756"/>
+<span class="certificate-zoom-label">Büyüt ↗</span>
+</button>
+<div class="cert-reference-copy">
+<div class="cert-reference-type">WEBINAR / EĞİTİM KAYDI · 2026</div>
+<h3>Get Ready for AI Infrastructure Certification</h3>
+<p>NVIDIA</p>
+<div class="cert-reference-skills"><span>AI altyapısı farkındalığı</span><span>Sertifikasyon kapsamına hazırlık</span><span>AI infrastructure öğrenme yolu</span></div>
+<a href="assets/certificates/nvidia-ai-infrastructure-webinar.pdf" rel="noreferrer noopener" target="_blank">Orijinal belgeyi aç ↗</a>
+</div>
+</article>
+</div>
+</div>
+</section>
+<div aria-hidden="true" class="certificate-lightbox" id="certificateLightbox">
+<button aria-label="Kapat" class="certificate-lightbox-close" type="button">×</button>
+<div class="certificate-lightbox-inner">
+<img alt="Belge önizlemesi" decoding="async" loading="lazy"/>
+<div class="certificate-lightbox-title"></div>
+</div>
+</div>
+<section class="section shell reveal" id="writing"><div class="section-micro-label">NOTES / ARTICLES / BLOG</div>
+<div class="section-heading split-heading">
+<div>
+<p class="eyebrow">05 — Blog &amp; Makaleler</p>
+<h2 class="writing-heading-inline">Yaptıklarımı değil sadece, nasıl düşündüğümü de yazmak.</h2>
+</div>
+</div><div class="writing-split">
+<div class="writing-group">
+<h3 class="writing-group-title">Makaleler</h3>
+<div class="writing-panel always-visible">
+<article class="writing-card writing-placeholder-card">
+<div>
+<span class="writing-type">MAKALE</span>
+<h3>Burayı dolduracağım.</h3>
+<p>Yeni içeriklerimi buraya ekleyeceğim.</p>
+</div>
+<div class="writing-meta">Yakında <span>↗</span></div>
+</article>
+</div>
+</div>
+<div class="writing-group">
+<h3 class="writing-group-title">Blog</h3>
+<div class="writing-panel always-visible">
+<article class="writing-card writing-placeholder-card">
+<div>
+<span class="writing-type">BLOG</span>
+<h3>Burayı dolduracağım.</h3>
+<p>Yeni içeriklerimi buraya ekleyeceğim.</p>
+</div>
+<div class="writing-meta">Yakında <span>↗</span></div>
+</article>
+</div>
+</div>
+</div>
+</section>
+<section class="section recommendations reveal" id="recommendations"><div class="section-micro-label">PERSONAL INDEX / OFF-DUTY</div>
+<div class="shell recommendation-shell">
+<div class="recommendation-intro-wide recommendation-intro">
+<p class="eyebrow light">06 — Öneriler</p>
+<h2 class="recommendation-heading-inline">CV'de söylenmeyen birkaç şey de burada.</h2>
+</div>
+</div>
+<div class="recommendation-library">
+<div class="recommendation-column books-column">
+<div class="recommendation-column-head">
+<span class="recommendation-index">01</span>
+<h3>Kitaplar</h3>
+</div>
+<article class="media-recommendation">
+<div class="media-cover book-cover"><img alt="Nutuk — Mustafa Kemal Atatürk kitap kapağı" decoding="sync" height="586" loading="eager" src="assets/books/nutuk-yky.webp" width="400"/></div>
+<div class="media-copy">
+<h4>Nutuk</h4><div class="book-author">Mustafa Kemal Atatürk</div>
+<p><strong>Neden öneriyorum:</strong> Ülkemizin ne kadar zor şartlar altında kurulduğunu, hangi tehditlerle karşı karşıya kaldığını ve Cumhuriyet’e giden yolda verilen mücadelenin büyüklüğünü anlamak için okunması gerektiğini düşündüğüm en önemli eser. Nutuk, yalnızca geçmişi anlatan bir tarih metni değil; bağımsızlık, liderlik, strateji ve millet iradesi üzerine çok güçlü bir bakış açısı sunuyor. Bugün sahip olduğumuz Cumhuriyet ve bağımsızlık için başta Ulu Önderimiz Mustafa Kemal Atatürk olmak üzere bu mücadeleyi veren herkese minnet ve teşekkür borçluyuz.</p>
+</div>
+</article>
+<article class="media-recommendation">
+<div class="media-cover book-cover"><img alt="İktidar: Güç Sahibi Olmanın 48 Yasası — Robert Greene kitap kapağı" decoding="sync" height="445" loading="eager" src="assets/books/iktidar-altin-kitaplar.webp" width="278"/></div>
+<div class="media-copy">
+<h4>İktidar: Güç Sahibi Olmanın 48 Yasası</h4><div class="book-author">Robert Greene</div>
+<p><strong>Neden öneriyorum:</strong> Bu kitap sayesinde insanların söylediklerinin arkasındaki gerçek motivasyonları, davranışlarının nedenlerini ve güç ilişkilerinin insan ilişkilerini nasıl şekillendirdiğini çok daha iyi anlamaya başladım. İnsanları, olayları ve özellikle sosyal dinamikleri analiz ederken bana farklı bir bakış açısı kazandıran kitaplardan biri oldu.</p>
+</div>
+</article>
+<article class="media-recommendation">
+<div class="media-cover book-cover placeholder-cover"><span>KİTAP 03</span></div>
+<div class="media-copy">
+<h4>3. kitap — henüz eklenmedi</h4>
+<p>Neden öneriyorum: Üçüncü kitap seçildiğinde buraya kişisel öneri notu eklenecek.</p>
+</div>
+</article>
+</div>
+<div class="recommendation-column movies-column">
+<div class="recommendation-column-head">
+<span class="recommendation-index">02</span>
+<h3>Filmler</h3>
+</div>
+<article class="media-recommendation">
+<div class="media-cover dvd-cover placeholder-cover"><span>Film 01</span></div>
+<div class="media-copy">
+<h4>Film adı</h4>
+<p>Neden öneriyorum: Filmin bende neden iz bıraktığını ve hangi açıdan önerdiğimi burada yazacağım.</p>
+</div>
+</article>
+<article class="media-recommendation">
+<div class="media-cover dvd-cover placeholder-cover"><span>Film 02</span></div>
+<div class="media-copy">
+<h4>Film adı</h4>
+<p>Neden öneriyorum: Atmosferi, hikâyesi, yönetmenliği ya da kişisel bağım gibi kısa bir öneri notu burada olacak.</p>
+</div>
+</article>
+<article class="media-recommendation">
+<div class="media-cover dvd-cover placeholder-cover"><span>Film 03</span></div>
+<div class="media-copy">
+<h4>Film adı</h4>
+<p>Neden öneriyorum: Üçüncü film için afiş/DVD kapağı ve kişisel öneri açıklaması bu alanda gösterilecek.</p>
+</div>
+</article>
+</div>
+</div></section>
+<section class="section shell contact-section reveal" id="contact"><div class="section-micro-label">OPEN CHANNEL / CONTACT</div>
+<p class="eyebrow">07 — İletişim</p>
+<div class="contact-grid">
+<h2>Bir fikir varsa,<br/><span>konuşmaya değer.</span></h2>
+<div class="contact-side">
+<p>Proje, iş birliği, staj/iş fırsatı veya sadece teknik bir konu üzerine konuşmak için ulaşabilirsin.</p>
+<a class="contact-mail contact-mail-nowrap" href="mailto:borasenel379@gmail.com">borasenel379@gmail.com <span>↗</span></a>
+<div class="contact-links">
+<a href="https://linkedin.com/in/borasenel" rel="noopener noreferrer" target="_blank">LinkedIn ↗</a>
+<a href="https://github.com/elverpool" rel="noopener noreferrer" target="_blank">GitHub ↗</a>
+<a href="assets/docs/Bora_Senel_CV_TR.pdf" rel="noreferrer" target="_blank">CV ↗</a>
+<a href="https://medium.com/@borasenel" rel="noopener noreferrer" target="_blank">Medium ↗</a><a href="https://letterboxd.com/borelver/" rel="noopener noreferrer" target="_blank">Letterboxd ↗</a><a href="https://www.upwork.com/freelancers/~01b04430b8e9dc3db6" rel="noopener noreferrer" target="_blank">Upwork ↗</a></div>
+</div>
+</div>
+</section>
+</main>
+<footer class="footer shell">
+<span>© <span id="year"></span> Bora Şenel</span>
+<span>Designed as a personal knowledge &amp; work space.</span>
+<a href="#top">Yukarı dön ↑</a>
+</footer>
+<script>const root = document.body;
+const menuToggle = document.querySelector('.menu-toggle');
+const header = document.querySelector('.site-header');
+
+
+});
+
+menuToggle?.addEventListener('click', () => {
+  header.classList.toggle('menu-open');
+  menuToggle.textContent = header.classList.contains('menu-open') ? 'Kapat' : 'Menü';
+});
+
+document.querySelectorAll('.nav a').forEach(link => link.addEventListener('click', () => {
+  header.classList.remove('menu-open');
+  if (menuToggle) menuToggle.textContent = 'Menü';
+}));
+
+const tabs = document.querySelectorAll('.tab');
+const panels = document.querySelectorAll('.writing-panel');
+tabs.forEach(tab => tab.addEventListener('click', () => {
+  tabs.forEach(t => { t.classList.remove('active'); t.setAttribute('aria-selected', 'false'); });
+  panels.forEach(p => p.classList.remove('active'));
+  tab.classList.add('active');
+  tab.setAttribute('aria-selected', 'true');
+  document.querySelector(`[data-panel="${tab.dataset.tab}"]`)?.classList.add('active');
+}));
+
+const revealObserver = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('in-view');
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.08 });
+
+document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+document.getElementById('year').textContent = new Date().getFullYear();</script>
+<script>
+(() => {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+  }, {threshold: 0.12});
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  const glow = document.createElement('div');
+  glow.style.cssText = `
+    position:fixed;width:180px;height:180px;border-radius:50%;
+    pointer-events:none;z-index:-1;filter:blur(52px);
+    background:rgba(91,92,255,.18);transform:translate(-50%,-50%);
+    transition:left .06s linear, top .06s linear;opacity:.8;
+  `;
+  document.body.appendChild(glow);
+  window.addEventListener('pointermove', e => {
+    glow.style.left = e.clientX + 'px';
+    glow.style.top = e.clientY + 'px';
+  }, {passive:true});
+})();
+</script>
+<script>
+document.querySelectorAll('#work .project').forEach(card => {
+  card.addEventListener('pointermove', e => {
+    const r = card.getBoundingClientRect();
+    const x = (e.clientX - r.left) / r.width - .5;
+    const y = (e.clientY - r.top) / r.height - .5;
+    card.style.transform = `translateY(-6px) perspective(900px) rotateX(${(-y*1.2).toFixed(2)}deg) rotateY(${(x*1.2).toFixed(2)}deg)`;
+  });
+  card.addEventListener('pointerleave', () => card.style.transform = '');
+});
+</script>
+<script>
+(() => {
+  const box = document.getElementById('certificateLightbox');
+  if (!box) return;
+  const img = box.querySelector('img');
+  const title = box.querySelector('.certificate-lightbox-title');
+  const close = () => { box.classList.remove('open'); box.setAttribute('aria-hidden','true'); document.body.style.overflow=''; };
+  document.querySelectorAll('[data-cert-image]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      img.src = btn.dataset.certImage;
+      img.alt = btn.dataset.certTitle || 'Belge önizlemesi';
+      title.textContent = btn.dataset.certTitle || '';
+      box.classList.add('open'); box.setAttribute('aria-hidden','false'); document.body.style.overflow='hidden';
+    });
+  });
+  box.querySelector('.certificate-lightbox-close').addEventListener('click', close);
+  box.addEventListener('click', e => { if (e.target === box) close(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
+})();
+</script></body>
+</html>
