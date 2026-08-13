@@ -3141,12 +3141,96 @@ button:focus-visible,
   background: rgba(93,98,255,.045);
 }
 
-/* Intentional empty states instead of unfinished placeholder cards. */
-#writing .writing-placeholder-card {
-  min-height: 220px;
+/* Writing archive: latest first, three entries before progressive disclosure. */
+#writing .writing-archive{
+  border-top:1px solid var(--ink);
 }
-#writing .writing-placeholder-card h3 {
-  max-width: 420px;
+#writing .writing-card{
+  grid-template-columns:minmax(0,1fr) minmax(180px,260px) !important;
+  align-items:center;
+  color:inherit;
+  text-decoration:none;
+}
+#writing .writing-card-copy{
+  min-width:0;
+}
+#writing .writing-card-image{
+  width:100%;
+  aspect-ratio:16 / 9;
+  overflow:hidden;
+  border-radius:16px;
+  border:1px solid var(--line);
+  background:#eef1f5;
+}
+#writing .writing-card-image img{
+  width:100%;
+  height:100%;
+  display:block;
+  object-fit:cover;
+}
+#writing .writing-card-topline{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  gap:10px;
+}
+#writing .writing-date{
+  color:var(--muted);
+  font-size:10px;
+  letter-spacing:.04em;
+}
+#writing .writing-tags{
+  display:flex;
+  flex-wrap:wrap;
+  gap:7px;
+  margin-top:17px;
+}
+#writing .writing-tags span{
+  padding:6px 9px;
+  border:1px solid rgba(93,98,255,.14);
+  border-radius:999px;
+  color:#565bc8;
+  background:rgba(93,98,255,.05);
+  font-size:9px;
+  font-weight:700;
+}
+#writing .writing-read-link{
+  display:inline-flex;
+  margin-top:20px;
+  font-size:11px;
+  font-weight:800;
+}
+.writing-toggle{
+  display:none;
+  margin:28px auto 0;
+  min-height:46px;
+  padding:12px 18px;
+  border:1px solid var(--line);
+  border-radius:999px;
+  background:transparent;
+  color:var(--ink);
+  font:inherit;
+  font-size:12px;
+  font-weight:800;
+  cursor:pointer;
+}
+.js #writing.has-more-writing .writing-toggle{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+}
+.js #writing.writing-collapsed .writing-card:nth-child(n+4){
+  display:none !important;
+}
+@media(max-width:720px){
+  #writing .writing-card{
+    grid-template-columns:1fr !important;
+    gap:22px !important;
+    padding:25px 0 !important;
+  }
+  #writing .writing-card-image{
+    grid-row:1;
+  }
 }
 .recommendation-empty-state {
   min-height: 300px;
@@ -3874,40 +3958,26 @@ button:focus-visible,
 <div class="certificate-lightbox-title"></div>
 </div>
 </div>
-<section class="section shell reveal" id="writing"><div class="section-micro-label">NOTES / ARTICLES / BLOG</div>
+<section class="section shell reveal writing-collapsed" id="writing"><div class="section-micro-label">WRITING / LATEST FIRST</div>
 <div class="section-heading split-heading">
 <div>
-<p class="eyebrow">05 — Blog &amp; Makaleler</p>
+<p class="eyebrow">05 — Yazılarım</p>
 <h2 class="writing-heading-inline">Yaptıklarımı değil sadece, nasıl düşündüğümü de yazmak.</h2>
 </div>
-</div><div class="writing-split">
-<div class="writing-group">
-<h3 class="writing-group-title">Makaleler</h3>
-<div class="writing-panel always-visible">
-<article class="writing-card writing-placeholder-card">
-<div>
-<span class="writing-type">MAKALE</span>
-<h3>İlk yazılar yakında burada.</h3>
-<p>Ürün, teknoloji ve yapay zekâ üzerine daha uzun analizleri burada paylaşacağım.</p>
 </div>
-<div class="writing-meta">Hazırlanıyor</div>
-</article>
+<div class="writing-archive" id="writing-list">
+<a class="writing-card" data-published="2026-08-13" href="https://medium.com/@borasenel/e-ticaret-sipari%C5%9Flerinde-i%CC%87ade-tahmini-veri-analizi-ve-makine-%C3%B6%C4%9Frenmesi-beb1312d946e?sharedUserId=borasenel" rel="noopener noreferrer" target="_blank">
+<div class="writing-card-copy">
+<div class="writing-card-topline"><span class="writing-type">MAKALE · MEDIUM</span><time class="writing-date" datetime="2026-08-13">13 Ağustos 2026</time></div>
+<h3>E-Ticaret Siparişlerinde İade Tahmini: Veri Analizi ve Makine Öğrenmesi</h3>
+<p>1.398 siparişlik dengesiz bir veri setinde Logistic Regression, KNN ve Decision Tree modellerini karşılaştırdım; accuracy’nin tek başına neden yanıltıcı olabileceğini ve tuning sonrası metriklerin nasıl değiştiğini inceledim.</p>
+<div class="writing-tags"><span>Machine Learning</span><span>Data Science</span><span>Python</span><span>E-Commerce</span></div>
+<span class="writing-read-link">Medium’da oku ↗</span>
 </div>
+<div class="writing-card-image"><img alt="E-ticaret siparişlerinde iade tahmini yazısının kapak görseli" decoding="async" height="576" loading="lazy" src="assets/writing/ecommerce-return-prediction.png" width="1024"/></div>
+</a>
 </div>
-<div class="writing-group">
-<h3 class="writing-group-title">Blog</h3>
-<div class="writing-panel always-visible">
-<article class="writing-card writing-placeholder-card">
-<div>
-<span class="writing-type">BLOG</span>
-<h3>İlk yazılar yakında burada.</h3>
-<p>Projelerden öğrendiklerimi, denemelerimi ve kısa teknik notları burada paylaşacağım.</p>
-</div>
-<div class="writing-meta">Hazırlanıyor</div>
-</article>
-</div>
-</div>
-</div>
+<button aria-controls="writing-list" aria-expanded="false" class="writing-toggle" type="button">Tüm yazıları göster ↓</button>
 </section>
 <section class="section recommendations reveal" id="recommendations"><div class="section-micro-label">PERSONAL INDEX / OFF-DUTY</div>
 <div class="shell recommendation-shell">
@@ -4016,15 +4086,21 @@ button:focus-visible,
     });
   }
 
-  const tabs = document.querySelectorAll('.tab');
-  const panels = document.querySelectorAll('.writing-panel');
-  tabs.forEach(tab => tab.addEventListener('click', () => {
-    tabs.forEach(t => { t.classList.remove('active'); t.setAttribute('aria-selected', 'false'); });
-    panels.forEach(p => p.classList.remove('active'));
-    tab.classList.add('active');
-    tab.setAttribute('aria-selected', 'true');
-    document.querySelector(`[data-panel="${tab.dataset.tab}"]`)?.classList.add('active');
-  }));
+  const writingSection = document.querySelector('#writing');
+  const writingList = document.querySelector('#writing-list');
+  const writingToggle = document.querySelector('.writing-toggle');
+  if (writingSection && writingList && writingToggle) {
+    const writingCards = Array.from(writingList.querySelectorAll('.writing-card'));
+    writingCards
+      .sort((a, b) => String(b.dataset.published).localeCompare(String(a.dataset.published)))
+      .forEach(card => writingList.appendChild(card));
+    if (writingCards.length > 3) writingSection.classList.add('has-more-writing');
+    writingToggle.addEventListener('click', () => {
+      const collapsed = writingSection.classList.toggle('writing-collapsed');
+      writingToggle.setAttribute('aria-expanded', String(!collapsed));
+      writingToggle.textContent = collapsed ? 'Tüm yazıları göster ↓' : 'Daha az yazı göster ↑';
+    });
+  }
 
   // Progressive enhancement: content must remain visible even when IntersectionObserver is unavailable.
   const revealEls = document.querySelectorAll('.reveal');
