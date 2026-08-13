@@ -3274,6 +3274,67 @@ button:focus-visible,
     transform: none !important;
   }
 }
+
+/* Downloadable project evidence. */
+#work .project-v22-card .project-actions{
+  display:flex !important;
+  flex-wrap:wrap !important;
+  gap:8px !important;
+}
+#work .project-v22-card a.project-action{
+  gap:9px !important;
+  cursor:pointer !important;
+  text-decoration:none !important;
+  transition:border-color .2s ease, background-color .2s ease, transform .2s ease !important;
+}
+#work .project-v22-card a.project-action:hover{
+  border-color:rgba(93,98,255,.45) !important;
+  background:rgba(93,98,255,.06) !important;
+  transform:translateY(-1px) !important;
+}
+#work .project-v22-card .file-ext{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-width:38px;
+  min-height:22px;
+  padding:3px 7px;
+  border-radius:7px;
+  background:#151515;
+  color:#fff;
+  font-size:8px;
+  line-height:1;
+  letter-spacing:.08em;
+}
+#work .project-flow-card .project-visual{
+  background:#f4f7fb !important;
+}
+#work .project-flow-card .project-visual img{
+  object-fit:contain !important;
+  padding:20px !important;
+}
+@media(min-width:901px){
+  #work .project-flow-card{
+    grid-column:1 / -1 !important;
+    display:grid !important;
+    grid-template-columns:minmax(0,1.15fr) minmax(360px,.85fr) !important;
+  }
+  #work .project-flow-card .project-visual{
+    height:auto !important;
+    min-height:440px !important;
+  }
+  #work .project-flow-card .project-copy{
+    min-height:440px !important;
+  }
+}
+@media(max-width:560px){
+  #work .project-v22-card .project-actions{
+    align-items:stretch !important;
+  }
+  #work .project-v22-card a.project-action{
+    flex:1 1 calc(50% - 8px) !important;
+  }
+}
 </style></head>
 <body>
 <div aria-hidden="true" class="noise"></div>
@@ -3411,7 +3472,7 @@ button:focus-visible,
 <div class="below-about-marker">
 <span>Selected chapters</span>
 <span>Work · Skills · Writing · Personal</span>
-</div><section class="section section-work reveal projects-reference-layout" id="work"><div class="section-micro-label">SELECTED WORK / 06 PROJECTS</div>
+</div><section class="section section-work reveal projects-reference-layout" id="work"><div class="section-micro-label">SELECTED WORK / 07 PROJECTS</div>
 <div class="shell">
 <div class="section-heading split-heading">
 <div>
@@ -3452,7 +3513,7 @@ button:focus-visible,
 <span>Premium Sertifikasyon</span>
 <span>7 Günlük Aktivasyon Planı</span>
 </div>
-<div aria-label="Proje bağlantıları" class="project-actions"><button aria-disabled="true" class="project-action is-disabled" disabled="" title="Rapor bağlantısı daha sonra eklenecek" type="button">Rapor ↗</button></div>
+<div aria-label="Proje dosyaları" class="project-actions"><a class="project-action" href="assets/projects/reports/udemy-digital-product-management-report.pdf" rel="noopener" target="_blank">Rapor <span class="file-ext">PDF</span></a></div>
 </div>
 </div>
 </article><article class="project project-v22-card">
@@ -3480,7 +3541,9 @@ button:focus-visible,
 <h3>Diyabet Tahmini — KNN &amp; Random Forest</h3>
 <p>KNN ve Random Forest modellerini karşılaştırıp GridSearchCV ile optimize ettim; Random Forest ile %90.61 accuracy ve %89.09 recall elde ettim.</p>
 <div class="tags"><span>Python</span><span>Random Forest</span><span>GridSearchCV</span></div>
-<div aria-label="Proje bağlantıları" class="project-actions"><button aria-disabled="true" class="project-action is-disabled" disabled="" title="GitHub bağlantısı daha sonra eklenecek" type="button">GitHub ↗</button></div>
+<div aria-label="Proje dosyaları" class="project-actions">
+<a class="project-action" href="assets/projects/reports/diabetes-knn-random-forest-report.pdf" rel="noopener" target="_blank">Rapor <span class="file-ext">PDF</span></a>
+</div>
 </div>
 </div>
 </article><article class="project project-v22-card">
@@ -3510,7 +3573,24 @@ button:focus-visible,
 <div class="tags">
 <span>Shopify</span><span>SEO</span><span>Digital Marketing</span><span>Analytics</span><span>VestaGPT</span><span>Instagram</span><span>Pinterest</span>
 </div>
-<div aria-label="Proje bağlantıları" class="project-actions"><button aria-disabled="true" class="project-action is-disabled" disabled="" title="Rapor bağlantısı daha sonra eklenecek" type="button">Rapor ↗</button></div>
+<div aria-label="Proje dosyaları" class="project-actions"><a class="project-action" href="assets/projects/reports/vesta-atelier-digital-marketing-report.pdf" rel="noopener" target="_blank">Rapor <span class="file-ext">PDF</span></a></div>
+</div>
+</div>
+</article><article class="project project-flow-card project-v22-card">
+<div class="project-visual project-image-visual">
+<img alt="Dershane otomasyon sisteminin kullanıcı rolleri ve iş akışını gösteren akış diyagramı" decoding="async" fetchpriority="low" height="2825" loading="lazy" src="assets/projects/dershane-otomasyon-flow.png" width="3575"/>
+<span class="project-visual-badge">DESKTOP / MANAGEMENT SYSTEM</span>
+<span class="project-v22-number">07</span></div>
+<div class="project-copy">
+<div>
+<p class="project-type">C# · WINFORMS · SQL SERVER · OOP</p>
+<h3>Dershane Yönetim Otomasyonu</h3>
+<p>Öğrenci, öğretmen ve yönetici rollerini tek sistemde buluşturan; kayıt, muhasebe, not, ders programı ve devamsızlık süreçlerini yöneten masaüstü uygulamasını ekip çalışmasıyla geliştirdik.</p>
+<div class="tags"><span>Role-Based Access</span><span>SQL Server</span><span>OOP</span><span>Process Design</span></div>
+<div aria-label="Proje dosyaları" class="project-actions">
+<a class="project-action" href="assets/projects/reports/dershane-otomasyon-documentation.docx" download>Dokümantasyon <span class="file-ext">DOCX</span></a>
+<a class="project-action" href="assets/projects/dershane-otomasyon-flow.png" rel="noopener" target="_blank">Akış şeması <span class="file-ext">PNG</span></a>
+</div>
 </div>
 </div>
 </article></div>
