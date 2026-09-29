@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="788" viewBox="0 0 1400 788">
+  <defs><pattern id="grid" width="56" height="56" patternUnits="userSpaceOnUse"><path d="M56 0H0V56" fill="none" stroke="#afc3cc" opacity=".07"/></pattern></defs>
+  <rect width="1400" height="788" fill="#142b35"/>
+  <rect width="1400" height="788" fill="url(#grid)"/>
+  <text x="100" y="208" font-family="Arial,sans-serif" font-size="23" letter-spacing="5" fill="#88bcb3">FABRİKA OPERASYON PLATFORMU</text>
+  <text x="91" y="389" font-family="Arial,sans-serif" font-size="190" font-weight="700" letter-spacing="-8" fill="#eef1e9">ROTA</text>
+  <text x="100" y="463" font-family="Arial,sans-serif" font-size="35" fill="#b8cece">Üretimden teslimata, tek kayıt zinciri.</text>
+  <path d="M135 572H1220" fill="none" stroke="#88bcb3" stroke-width="3"/>
+  <g fill="#142b35" stroke="#88bcb3" stroke-width="3"><circle cx="135" cy="572" r="12"/><circle cx="475" cy="572" r="12"/><circle cx="815" cy="572" r="12"/><circle cx="1220" cy="572" r="12"/></g>
+  <g fill="#eef1e9" font-family="Arial,sans-serif" font-size="25"><text x="100" y="632">SİPARİŞ</text><text x="420" y="632">ÜRETİM</text><text x="778" y="632">STOK</text><text x="1105" y="632">SEVKİYAT</text></g>
+  <path d="M1050 233l95-55 95 55v110l-95 55-95-55zM1050 233l95 55 95-55M1145 288v110" fill="none" stroke="#88bcb3" stroke-width="3"/>
+</svg>

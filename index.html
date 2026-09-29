@@ -3387,6 +3387,44 @@ button:focus-visible,
 }
 
 /* Downloadable project evidence. */
+#work .project-case-study{
+  margin-top:20px;
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+}
+#work .project-case-study summary{
+  padding:14px 0;
+  cursor:pointer;
+  color:var(--ink);
+  font-size:13px;
+  font-weight:700;
+}
+#work .project-case-study summary:focus-visible{
+  outline:2px solid var(--accent);
+  outline-offset:4px;
+}
+#work .project-case-study-body{
+  padding:0 0 18px;
+  overflow-wrap:anywhere;
+}
+#work .project-case-study-body h4{
+  margin:18px 0 8px;
+  color:var(--ink);
+  font-size:14px;
+}
+#work .project-case-study-body p + p{
+  padding-top:14px;
+}
+#work [data-project="pearl-of-anatolia"] .project-visual,
+#work [data-project="rota"] .project-visual{
+  aspect-ratio:1400 / 788;
+  height:auto !important;
+  min-height:0 !important;
+}
+#work [data-project="pearl-of-anatolia"] .project-visual img,
+#work [data-project="rota"] .project-visual img{
+  object-fit:contain !important;
+}
 #work .project-v22-card .project-actions{
   display:flex !important;
   flex-wrap:wrap !important;
@@ -3583,7 +3621,7 @@ button:focus-visible,
 <div class="below-about-marker">
 <span>Selected chapters</span>
 <span>Work · Skills · Writing · Personal</span>
-</div><section class="section section-work reveal projects-reference-layout" id="work"><div class="section-micro-label">SELECTED WORK / 07 PROJECTS</div>
+</div><section class="section section-work reveal projects-reference-layout" id="work"><div class="section-micro-label">SELECTED WORK / 09 PROJECTS</div>
 <div class="shell">
 <div class="section-heading split-heading">
 <div>
@@ -3591,11 +3629,49 @@ button:focus-visible,
 <h2 class="work-heading-inline">Ürettiklerimi ve süreçte öğrendiklerimi burada paylaşıyorum.</h2>
 </div>
 </div>
-<div class="projects"><article class="project project-v22-card">
+<div class="projects"><article class="project project-v22-card" data-project="pearl-of-anatolia">
+<div class="project-visual project-image-visual">
+<img alt="Pearl of Anatolia projesi için dokuma desenli tipografik kapak" decoding="async" fetchpriority="low" height="788" loading="lazy" src="assets/projects/pearl-of-anatolia.svg" width="1400"/>
+<span class="project-visual-badge">CUSTOM E-COMMERCE</span>
+<span class="project-v22-number">01</span></div>
+<div class="project-copy"><div>
+<p class="project-type">WEB DEVELOPMENT · E-COMMERCE · PRODUCT EXPERIENCE</p>
+<h3>Pearl of Anatolia | Özel E-Ticaret Platformu</h3>
+<p>Pearl of Anatolia için sıfırdan geliştirdiğim bu e-ticaret projesi; ürün kataloğu, sepet ve satın alma akışı, iyzico ödeme entegrasyonu ve test edilmiş ödeme akışı, üyelik ve hesap sistemi, e-posta altyapısı ve testleri gerçekleştirilmiş Journal içerik bölümünü tek bir platformda bir araya getiriyor. Marka kimliğine uygun tasarımla alışveriş işlevlerini bütünleştiren, uçtan uca bir web geliştirme çalışması.</p>
+<div class="tags"><span>Web Development</span><span>E-Commerce</span><span>iyzico</span><span>Account System</span><span>Journal</span></div>
+<div aria-label="Pearl of Anatolia proje bağlantısı" class="project-actions"><a class="project-action" href="https://pearlofanatolia.com.tr/" rel="noopener noreferrer" target="_blank">Canlı siteyi incele ↗</a></div>
+</div></div>
+</article><article class="project project-v22-card" data-project="rota">
+<div class="project-visual project-image-visual">
+<img alt="ROTA projesi için sipariş, üretim, stok ve sevkiyat zincirini gösteren şematik kapak" decoding="async" fetchpriority="low" height="788" loading="lazy" src="assets/projects/rota-operations.svg" width="1400"/>
+<span class="project-visual-badge">OPERATIONS / TRACEABILITY</span>
+<span class="project-v22-number">02</span></div>
+<div class="project-copy"><div>
+<p class="project-type">FULL-STACK DEVELOPMENT · PRODUCT DESIGN · MANUFACTURING</p>
+<h3>ROTA — Fabrika Operasyon ve İzlenebilirlik Sistemi</h3>
+<p>EPS üretiminin sipariş, hammadde kabulü, üretim, varyant bazlı stok, paketleme ve sevkiyat süreçlerini tek bir operasyon platformunda birleştirdim. ROTA, Big Bag/lot hareketlerini ve her QR kodlu ürünü üretimden teslimata kadar izleyerek saha ve yönetim ekiplerine ortak bir görünüm sunuyor.</p>
+<div class="tags"><span>ASP.NET Core 10</span><span>Blazor Server</span><span>C#</span><span>PostgreSQL</span><span>Docker Compose</span><span>QR</span></div>
+<details class="project-case-study">
+<summary>Vaka çalışmasını oku <span aria-hidden="true">↘</span></summary>
+<div class="project-case-study-body">
+<h4>Problem ve yaklaşım</h4>
+<p>Sipariş, üretim, hammadde, paketleme ve sevkiyat bilgileri farklı takip dosyalarına dağıldığında stok ayrıntılarını ve bir ürünün kaynağını izlemek zorlaşıyor. Bu akışları aynı kayıt zincirinde buluşturarak sahadaki işlemleri denetlenebilir kayıtlara dönüştürdüm.</p>
+<h4>Ürün kapsamı</h4>
+<p>Sipariş ve iş emri planlama; hammadde kabulü, lot ve Big Bag takibi; şişirme, silo, bloklama, kesim ve paketleme süreçleri aynı uygulamada yer alıyor. Stoklar yoğunluk, renk ve ölçüye göre ayrılıyor; QR kodlu paketler yüklemeden teslimata kadar izlenebiliyor. Muhasebe ve yönetim ekranları ambalaj hareketlerini, termin risklerini ve raporları bir arada sunuyor.</p>
+<h4>Ürün kararları</h4>
+<p>e-İrsaliye formu ön dolduruyor; stok ancak kullanıcı kabulüyle değişiyor. Hatalı kayıtlar gerekçeli düzeltme veya ters hareketle iz bırakıyor. Maliyet ve tasarruf hesapları açıkça tahmin olarak gösteriliyor.</p>
+<h4>Benim katkım ve teknik uygulama</h4>
+<p>İş akışlarını ve kullanıcı rollerini modelledim; web uygulamasını, veri yapılarını, raporlama ekranlarını ve Ubuntu dağıtım akışını geliştirdim. ASP.NET Core 10, Blazor Server, Entity Framework Core ve PostgreSQL kullandım. Rol tabanlı yetkilendirme, Docker Compose ve GitHub Actions dağıtım yapısının parçaları.</p>
+<p>Portfolyo örnekleri sentetiktir. Doğrulanmış verimlilik, tasarruf veya ROI yüzdesi bulunmadığı için nicel başarı iddiası eklenmemiştir.</p>
+</div>
+</details>
+<div aria-label="ROTA proje dosyaları" class="project-actions"><a class="project-action" href="assets/projects/reports/rota-portfolio-case-study.md" download>Vaka çalışmasını indir <span class="file-ext">MD</span></a></div>
+</div></div>
+</article><article class="project project-v22-card">
 <div class="project-visual project-image-visual">
 <img alt="Kişisel Yapay Zekâ Asistanı proje görseli" decoding="async" fetchpriority="low" height="788" loading="lazy" src="assets/projects/project-ai-assistant.webp" width="1400"/>
 <span class="project-visual-badge">LLM / AUTOMATION</span>
-<span class="project-v22-number">01</span></div>
+<span class="project-v22-number">03</span></div>
 <div class="project-copy">
 <div>
 <p class="project-type">AI · LLM · AUTOMATION</p>
@@ -3609,7 +3685,7 @@ button:focus-visible,
 <div class="project-visual project-image-visual udemy-product-visual">
 <img alt="Udemy dijital ürün yönetimi raporundaki wireframe, kullanıcı akışı ve roadmap görselleri" decoding="async" fetchpriority="low" height="788" loading="lazy" src="assets/projects/udemy-product-management-case-study.webp" width="1400"/>
 <div class="visual-label">PRODUCT STRATEGY / UX / ROADMAP</div>
-<span class="project-v22-number">02</span></div>
+<span class="project-v22-number">04</span></div>
 <div class="project-copy">
 <div>
 <p class="project-type">PRODUCT MANAGEMENT · UX · GROWTH STRATEGY</p>
@@ -3631,7 +3707,7 @@ button:focus-visible,
 <div class="project-visual project-image-visual">
 <img alt="Anket Analiz Aracı proje görseli" decoding="async" fetchpriority="low" height="788" loading="lazy" src="assets/projects/project-survey-analysis.webp" width="1400"/>
 <span class="project-visual-badge">DESKTOP / DATA</span>
-<span class="project-v22-number">03</span></div>
+<span class="project-v22-number">05</span></div>
 <div class="project-copy">
 <div>
 <p class="project-type">C# · .NET · DATA ANALYSIS</p>
@@ -3645,7 +3721,7 @@ button:focus-visible,
 <div class="project-visual project-image-visual">
 <img alt="Diyabet Tahmini — KNN &amp; Random Forest proje görseli" decoding="async" fetchpriority="low" height="860" loading="lazy" src="assets/projects/project-diabetes-ml.webp" width="1400"/>
 <span class="project-visual-badge">MACHINE LEARNING</span>
-<span class="project-v22-number">04</span></div>
+<span class="project-v22-number">06</span></div>
 <div class="project-copy">
 <div>
 <p class="project-type">PYTHON · MACHINE LEARNING · OPTIMIZATION</p>
@@ -3661,7 +3737,7 @@ button:focus-visible,
 <div class="project-visual project-image-visual">
 <img alt="PDF Sınav Sonuç Parser proje görseli" decoding="async" fetchpriority="low" height="860" loading="lazy" src="assets/projects/project-pdf-parser.webp" width="1400"/>
 <span class="project-visual-badge">PARSING / REPORTING</span>
-<span class="project-v22-number">05</span></div>
+<span class="project-v22-number">07</span></div>
 <div class="project-copy">
 <div>
 <p class="project-type">DATA EXTRACTION · PDF PARSING · AUTOMATION</p>
@@ -3675,7 +3751,7 @@ button:focus-visible,
 <div class="vesta-visual project-visual project-image-visual">
 <img alt="Vesta Atelier Shopify mağazası, VestaGPT chatbot ve arama görünürlüğü proje ekranları" decoding="async" fetchpriority="low" height="858" loading="lazy" src="assets/projects/vesta-atelier-case-study.webp" width="1400"/>
 <div class="visual-label">E-COMMERCE / GROWTH</div>
-<span class="project-v22-number">06</span></div>
+<span class="project-v22-number">08</span></div>
 <div class="project-copy">
 <div>
 <p class="project-type">E-COMMERCE · SEO · DIGITAL GROWTH</p>
@@ -3691,7 +3767,7 @@ button:focus-visible,
 <div class="project-visual project-image-visual">
 <img alt="Dershane otomasyon sisteminin kullanıcı rolleri ve iş akışını gösteren akış diyagramı" decoding="async" fetchpriority="low" height="2825" loading="lazy" src="assets/projects/dershane-otomasyon-flow.png" width="3575"/>
 <span class="project-visual-badge">DESKTOP / MANAGEMENT SYSTEM</span>
-<span class="project-v22-number">07</span></div>
+<span class="project-v22-number">09</span></div>
 <div class="project-copy">
 <div>
 <p class="project-type">C# · WINFORMS · SQL SERVER · OOP</p>
