@@ -1,131 +1,31 @@
 # ROTA — EPS Üretim Operasyon ve İzlenebilirlik Platformu
 
-> Portfolyo sayfasına aktarılmaya hazır proje metni. Gerçek kullanıcı, müşteri,
-> üretim ve finansal verileri içermez.
+## İhtiyaç
 
-## Proje kartı
+EPS üretiminde hammadde kabulünden sevkiyata kadar pek çok adım var; ancak bu adımların bilgisi çoğu zaman kâğıt formlara, Excel dosyalarına ve operatör notlarına dağılabiliyor. Böyle olunca bir bloğun hangi hammadde lotundan üretildiğini bulmak, fire artışının hangi vardiyada başladığını anlamak veya stoktaki ürünleri ölçülerine göre saymak zaman alıyor. Toplam stok miktarı tek başına yeterli değil: örneğin 16 DNS beyaz blok stoğunun kaçının 100×114×150, kaçının 110×122×155 ölçüsünde olduğu da bilinmeli. İrsaliye bilgilerinin tekrar girilmesi ve bozuk Big Bag’lerin stoktan nasıl düşüldüğünün izlenmesi de ayrı iş yükü oluşturuyor.
 
-**ROTA — Fabrika Operasyon ve İzlenebilirlik Sistemi**
+## Yaklaşımım
 
-EPS üretiminde siparişten hammadde kabulüne, saha operasyonlarından paket ve
-sevkiyata kadar uzanan süreçleri tek bir web uygulamasında birleştirdim. ROTA;
-üretim ve stok kayıtlarını varyant düzeyinde izleyerek saha ekipleri, muhasebe
-ve yönetim için ortak bir operasyon görünümü sunuyor.
+Bu dağınık kayıtları tek bir üretim akışında birleştirmek için ROTA’yı geliştirdim. Sistem; iş emri ve reçete kontrolünden hammadde girişine, şişirme ve silo takibinden bloklama, kesim, paketleme ve sevkiyata kadar ilerliyor. Her görev için işe uygun ekranlar ve yetkiler bulunuyor; bilgiler işlemin yapıldığı aşamada kaydediliyor. Böylece amaç yalnızca dijital form sunmak değil, bir aşamada oluşan kaydın sonraki aşamalarda da kullanılmasını sağlamak.
 
-**Etiketler:** Product Design · Full-Stack Development · .NET · PostgreSQL ·
-Manufacturing Operations · Traceability
+## Sorunlardan çözümlere
 
-## Vaka çalışması
+**İrsaliye ve hammadde kayıtları tekrarlıydı.** Desteklenen e-İrsaliye HTML dosyaları kabul formundaki alanları ön dolduruyor. Kullanıcı bilgileri kontrol edip onaylamadan stok hareketi oluşmuyor. Hammadde; tedarikçi, lot, Big Bag ve kilogram bilgileriyle kaydediliyor. Bozuk olduğu bildirilen Big Bag’ler seçilip gerekçeli bir stok hareketiyle çıkarılabiliyor; böylece düzeltmenin ne olduğu ve neden yapıldığı kayıtlı kalıyor.
 
-### 01 — Problem
+**Üretim geçmişini geriye doğru kurmak zordu.** ROTA’da malzeme lotu silo ve üretim kayıtlarıyla ilişkilendiriliyor; bloklara `BLK_...` biçiminde kalıcı kimlik ve sahada görülebilen alan numarası veriliyor. Kesim, fire, kalite ve paketleme kayıtları bu kimliğe bağlanıyor. Paketler için oluşturulan QR kodları da ürün etiketinde ve sevkiyatta kullanılabiliyor. Bu yapı, bir paketten geriye doğru kullanılan hammaddeye; bir bloktan ileriye doğru kesim ve paket bilgilerine ulaşmayı destekliyor.
 
-Bir EPS fabrikasında sipariş, üretim, hammadde, ürün stoğu, paketleme ve
-sevkiyat bilgileri farklı operasyon adımlarına ve takip dosyalarına dağılabilir.
-Bu durumda toplam stok görünse bile stoğun hangi yoğunluk, renk, ölçü veya
-paketlerden oluştuğunu bulmak; bir ürün paketini üretildiği blok ve kullanılan
-hammadde lotuna kadar takip etmek zorlaşır.
+**Stok toplamları ürünün gerçek dağılımını göstermiyordu.** Bitmiş ürün stoğu yoğunluk, renk ve ölçü boyutlarında; paketler de kendi ürün bilgileri ve adetleriyle görüntüleniyor. Böylece “toplam 40 adet” bilgisinin altındaki ölçü kırılımları da takip edilebiliyor. Ambalaj malzemeleri için giriş, üretimde tüketim ve düzeltme hareketleri; tedarikçi ve belge bilgileriyle birlikte kaydediliyor.
 
-ROTA’yı bu akışları aynı kayıt zincirinde buluşturmak ve fiziksel sahadaki
-işlemleri denetlenebilir kayıtlara dönüştürmek için geliştirdim.
+**Yönetim raporları için veriyi tekrar toplamak gerekiyordu.** Dashboard ve raporlar üretim, vardiya, fire, duruş, iş emri, stok ve izlenebilirlik kayıtlarını bir araya getiriyor. Denetim geçmişi, kimin hangi işlemi ne zaman ve hangi gerekçeyle yaptığını saklıyor; hatalı kayıtlar gerekçeli düzeltmelerle ele alınıyor. Böylece sahadaki operasyon kayıtları planlama ve değerlendirme için kullanılabilir bir görünüme kavuşuyor.
 
-### 02 — Hedef
+## Kapsam ve sınırlar
 
-- Siparişten sevkiyata kadar üretim akışını tek uygulamada görünür kılmak.
-- Hammadde, blok, bitmiş ürün ve ambalaj stoğunu ayrı ayrı ve ayrıntılı izlemek.
-- Her paket için benzersiz kimlik oluşturarak ürün izlenebilirliği sağlamak.
-- Operatör ekranlarını rol ve istasyon sorumluluklarına göre sadeleştirmek.
-- Muhasebe ve yöneticilere karar desteği sunarken tahminleri gerçekleşmiş sonuç
-  gibi göstermemek.
+ROTA’daki 3B Dijital İkiz görünümü, iş emri, silo ve blok gibi operasyon kayıtlarını mekânsal bir arayüzde gösteriyor. Bugünkü hali PLC veya sensörlerden canlı veri alan fiziksel bir fabrika simülasyonu değil; makine telemetrisi ve fiziksel taşıma/konum takibi ileri aşama geliştirme alanları olarak ayrılıyor.
 
-### 03 — Ürün kapsamı
+Uygulamayı Ubuntu sunucuda Docker Compose ile çalıştırılabilecek şekilde hazırlıyorum. Teknik temel: ASP.NET Core 10, Blazor Server, C#, Entity Framework Core ve PostgreSQL.
 
-**Sipariş ve üretim planlama.** Müşteri siparişleri ve terminler takip edilir;
-açık talep, mevcut stok ve üretim ihtiyacı iş emri akışına bağlanır.
+**Veri ve sonuç notu:** Portfolyoda gösterilecek örnek kayıtlar sentetiktir. Gerçek fabrika verisi, doğrulanmış tasarruf, üretim artışı veya gerçekleşmiş ROI sonucu paylaşılmamaktadır; dashboard ve ROI senaryoları operasyon verilerinden değerlendirme yapmaya yöneliktir.
 
-**Hammadde kabulü ve kalite.** Tedarikçi, hammadde, lot, irsaliye, Big Bag
-adedi ve kilogram miktarı birlikte kaydedilir. Gelen e-İrsaliye HTML dosyası
-okunarak kabul formu ön doldurulabilir; kullanıcı lot kabulünü onaylamadan stok
-değişmez. Bozuk Big Bag’ler gerekçe ile stoktan düşülebilir ve işlem hareket
-kaydında izlenir.
+## Daha kısa proje kartı
 
-**Üretim zinciri.** Şişirme, silo, bloklama, kesim ve paketleme adımları iş
-emriyle ilişkilendirilir. Blok ve paketler için saha/iş bilgileri ile kalıcı
-kodlar saklanır; kesim ve paketleme sırasında beklenen adet ile sahada sayılan
-adet karşılaştırılır.
-
-**Ayrıntılı ürün stoğu.** Blok ve paket miktarları yalnızca toplam adet olarak
-değil; ürün, yoğunluk (DNS), renk ve ölçü kırılımında gösterilir. Örneğin
-“40 adet beyaz, 16 DNS blok” bilgisinin farklı ölçülerdeki stok dağılımı ayrı
-satırlarda görülebilir.
-
-**Paket ve sevkiyat takibi.** Fiziksel paketlere benzersiz QR kimliği verilir.
-Sevkiyat sırasında paketler okutularak yükleme listesine eklenir; müşteri,
-araç, sürücü, irsaliye, çıkış ve teslim bilgileri kayıt altına alınır.
-
-**Ambalaj ve muhasebe kayıtları.** Poşet/ambalaj girişleri, üretim tüketimi,
-stok düzeltmeleri, tedarikçi ve belge bilgileriyle kilogram bazında takip
-edilir. Fatura para birimi ve fiyatı ile gerektiğinde TL kuru kaydedilebilir.
-
-**Yönetim ve raporlama.** Dashboard üretim çıktısı, duruş, kalite kaybı,
-hammadde ve paket stoğu, termin riski ve izlenebilirlik göstergelerini bir
-arada sunar. Raporlar Excel veya yazdırılabilir çıktı olarak alınabilir; stok
-karar ekranı satın alma önerileri, tahmini stok günleri, sipariş rezervasyonu
-ve belge kontrollerini öne çıkarır.
-
-### 04 — Ürün kararları
-
-- **Fiziksel kayıt önceliği:** e-İrsaliye veri girişi hızlandırır; tek başına
-  stok hareketi yaratmaz. Operatör veya muhasebe kullanıcısı doğrulayıp kabul
-  ettikten sonra kayıt oluşur.
-- **Toplam yerine varyant:** stok, karar vermeye yetecek özelliklerle
-  gruplanır; blok ve paket sayıları ölçü, renk ve yoğunlukla birlikte görünür.
-- **Silme yerine iz bırakma:** operasyon kayıtlarında yanlışlık olduğunda
-  gerekçeli düzeltme veya ters hareket yaklaşımı kullanılır.
-- **Tahmini sonuçları açık etiketleme:** dashboard'daki ROI ve tasarruf
-  hesapları maliyet varsayımlarına dayalı tahminlerdir. Karşılaştırılabilir
-  saha verisi olmadan gerçekleşmiş tasarruf olarak sunulmaz.
-
-### 05 — Teknik uygulama
-
-Uygulamayı ASP.NET Core 10 ve Blazor Server ile geliştirdim. Veriler Entity
-Framework Core ve PostgreSQL üzerinde tutuluyor; QR kodları paket ve blok
-izlenebilirliğinde kullanılıyor. Üretim, muhasebe, sevkiyat, stok ve yönetim
-ekranları rol tabanlı yetkilendirme ile ayrılıyor.
-
-Dağıtım hedefi Ubuntu üzerinde Docker Compose. CI akışı uygulama imajını
-oluşturup özel container registry'ye yayımlayacak şekilde tasarlandı; Ubuntu
-sunucusu kaynak koddan derleme yapmak yerine digest ile sabitlenmiş imajı
-indirip çalıştırıyor. HTTPS, veritabanı ağının uygulama ağıyla sınırlandırılması
-ve şifreli yedekleme üretim kurulumunun güvenlik yaklaşımının parçalarıdır.
-
-### 06 — Sonuç ve kapsam
-
-ROTA; üretim adımlarını, varyant bazlı stokları, belge girişlerini ve sevkiyat
-izini ortak bir veri modelinde bir araya getiriyor. Böylece operasyon ekranları
-günlük işleme, yönetim ekranları ise risk ve planlama kararlarına odaklanabiliyor.
-
-Portfolyoda kullanılacak örnek kayıtlar sentetiktir. Bu çalışma için
-doğrulanmış üretim verimliliği, maliyet tasarrufu veya ROI yüzdesi
-bulunmadığından nicel başarı iddiası eklenmemiştir.
-
-## Benim katkım
-
-İş akışlarını ve kullanıcı rollerini modelledim; üretim, stok ve sevkiyat
-süreçlerini ürün gereksinimlerine dönüştürerek web uygulamasını, veri
-yapılarını, raporlama ekranlarını ve Ubuntu dağıtım akışını geliştirdim.
-
-## Teknolojiler
-
-`ASP.NET Core 10` · `Blazor Server` · `C#` · `Entity Framework Core` ·
-`PostgreSQL` · `Docker Compose` · `GitHub Actions` · `QR` · `Excel`
-
----
-
-### Site kartı için daha kısa alternatif
-
-EPS üretiminin sipariş, hammadde kabulü, üretim, varyant bazlı stok, paketleme
-ve sevkiyat süreçlerini tek bir operasyon platformunda birleştirdim. ROTA,
-Big Bag/lot hareketlerini ve her QR kodlu ürünü üretimden teslimata kadar
-izleyerek saha ve yönetim ekiplerine ortak bir görünüm sunuyor.
-
-`ASP.NET Core` `Blazor Server` `PostgreSQL` `Manufacturing` `Traceability`
+EPS üretiminde kâğıt, Excel ve birbirinden kopuk operasyon kayıtları; stok dağılımını görmeyi ve bir ürünün hammadde lotundan sevkiyatına kadar izini sürmeyi zorlaştırıyordu. ROTA ile hammadde kabulü, üretim, kesim, paketleme ve sevkiyat kayıtlarını tek akışta birleştirdim. Sistem; ölçü ve ürün özelliklerine göre detaylı stok görünümü, gerekçeli stok hareketleri, blok/paket kimlikleri ve QR destekli izlenebilirlik sunuyor.

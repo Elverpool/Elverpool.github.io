@@ -3417,9 +3417,14 @@ button:focus-visible,
 }
 #work [data-project="pearl-of-anatolia"] .project-visual,
 #work [data-project="rota"] .project-visual{
-  aspect-ratio:1400 / 788;
   height:auto !important;
   min-height:0 !important;
+}
+#work [data-project="pearl-of-anatolia"] .project-visual{
+  aspect-ratio:1877 / 912;
+}
+#work [data-project="rota"] .project-visual{
+  aspect-ratio:1672 / 941;
 }
 #work [data-project="pearl-of-anatolia"] .project-visual img,
 #work [data-project="rota"] .project-visual img{
@@ -3631,7 +3636,7 @@ button:focus-visible,
 </div>
 <div class="projects"><article class="project project-v22-card" data-project="pearl-of-anatolia">
 <div class="project-visual project-image-visual">
-<img alt="Pearl of Anatolia projesi için dokuma desenli tipografik kapak" decoding="async" fetchpriority="low" height="788" loading="lazy" src="assets/projects/pearl-of-anatolia.svg" width="1400"/>
+<img alt="Pearl of Anatolia e-ticaret sitesinin ana sayfası, ürün seçkisi ve alışveriş bağlantıları" decoding="async" fetchpriority="low" height="912" loading="lazy" src="assets/projects/pearl-of-anatolia-ecommerce.webp" width="1877"/>
 <span class="project-visual-badge">CUSTOM E-COMMERCE</span>
 <span class="project-v22-number">01</span></div>
 <div class="project-copy"><div>
@@ -3643,26 +3648,28 @@ button:focus-visible,
 </div></div>
 </article><article class="project project-v22-card" data-project="rota">
 <div class="project-visual project-image-visual">
-<img alt="ROTA projesi için sipariş, üretim, stok ve sevkiyat zincirini gösteren şematik kapak" decoding="async" fetchpriority="low" height="788" loading="lazy" src="assets/projects/rota-operations.svg" width="1400"/>
+<img alt="ROTA logosu ve Raporlama, Operasyon, Takip, Analiz açılımı" decoding="async" fetchpriority="low" height="941" loading="lazy" src="assets/projects/rota-operations-platform.webp" width="1672"/>
 <span class="project-visual-badge">OPERATIONS / TRACEABILITY</span>
 <span class="project-v22-number">02</span></div>
 <div class="project-copy"><div>
 <p class="project-type">FULL-STACK DEVELOPMENT · PRODUCT DESIGN · MANUFACTURING</p>
 <h3>ROTA — Fabrika Operasyon ve İzlenebilirlik Sistemi</h3>
-<p>EPS üretiminin sipariş, hammadde kabulü, üretim, varyant bazlı stok, paketleme ve sevkiyat süreçlerini tek bir operasyon platformunda birleştirdim. ROTA, Big Bag/lot hareketlerini ve her QR kodlu ürünü üretimden teslimata kadar izleyerek saha ve yönetim ekiplerine ortak bir görünüm sunuyor.</p>
+<p>EPS üretiminde kâğıt, Excel ve birbirinden kopuk operasyon kayıtları; stok dağılımını görmeyi ve bir ürünün hammadde lotundan sevkiyatına kadar izini sürmeyi zorlaştırıyordu. ROTA ile hammadde kabulü, üretim, kesim, paketleme ve sevkiyat kayıtlarını tek akışta birleştirdim. Sistem; ölçü ve ürün özelliklerine göre detaylı stok görünümü, gerekçeli stok hareketleri, blok/paket kimlikleri ve QR destekli izlenebilirlik sunuyor.</p>
 <div class="tags"><span>ASP.NET Core 10</span><span>Blazor Server</span><span>C#</span><span>PostgreSQL</span><span>Docker Compose</span><span>QR</span></div>
 <details class="project-case-study">
 <summary>Vaka çalışmasını oku <span aria-hidden="true">↘</span></summary>
 <div class="project-case-study-body">
 <h4>Problem ve yaklaşım</h4>
-<p>Sipariş, üretim, hammadde, paketleme ve sevkiyat bilgileri farklı takip dosyalarına dağıldığında stok ayrıntılarını ve bir ürünün kaynağını izlemek zorlaşıyor. Bu akışları aynı kayıt zincirinde buluşturarak sahadaki işlemleri denetlenebilir kayıtlara dönüştürdüm.</p>
+<p>Hammadde kabulünden sevkiyata kadar oluşan bilgiler kâğıt formlara, Excel dosyalarına ve operatör notlarına dağılabiliyor. Bir bloğun hammadde lotunu, fire artışının başladığı vardiyayı veya stoktaki ölçü dağılımını bulmak zaman alıyor. ROTA’yı, her aşamada oluşan kaydın sonraki aşamalarda da kullanılmasını sağlamak için geliştirdim.</p>
 <h4>Ürün kapsamı</h4>
-<p>Sipariş ve iş emri planlama; hammadde kabulü, lot ve Big Bag takibi; şişirme, silo, bloklama, kesim ve paketleme süreçleri aynı uygulamada yer alıyor. Stoklar yoğunluk, renk ve ölçüye göre ayrılıyor; QR kodlu paketler yüklemeden teslimata kadar izlenebiliyor. Muhasebe ve yönetim ekranları ambalaj hareketlerini, termin risklerini ve raporları bir arada sunuyor.</p>
+<p>İş emri ve reçete kontrolü, hammadde girişi, şişirme, silo, bloklama, kesim, paketleme ve sevkiyat aynı akışta ilerliyor. Hammadde tedarikçi, lot, Big Bag ve kilogram bilgileriyle kaydediliyor. Kalıcı blok kimlikleri ve paket QR kodları, üretim geçmişine geriye ve ileriye doğru ulaşmayı destekliyor. Stoklar yoğunluk, renk ve ölçüye göre görüntüleniyor; dashboard ve raporlar vardiya, fire, duruş, stok ve izlenebilirlik kayıtlarını bir araya getiriyor.</p>
 <h4>Ürün kararları</h4>
-<p>e-İrsaliye formu ön dolduruyor; stok ancak kullanıcı kabulüyle değişiyor. Hatalı kayıtlar gerekçeli düzeltme veya ters hareketle iz bırakıyor. Maliyet ve tasarruf hesapları açıkça tahmin olarak gösteriliyor.</p>
+<p>Desteklenen e-İrsaliye HTML dosyaları kabul formunu ön dolduruyor; kullanıcı kontrol edip onaylamadan stok hareketi oluşmuyor. Bozuk Big Bag’ler gerekçeli stok hareketiyle çıkarılıyor. Denetim geçmişi, işlemi kimin ne zaman ve hangi gerekçeyle yaptığını saklıyor.</p>
 <h4>Benim katkım ve teknik uygulama</h4>
-<p>İş akışlarını ve kullanıcı rollerini modelledim; web uygulamasını, veri yapılarını, raporlama ekranlarını ve Ubuntu dağıtım akışını geliştirdim. ASP.NET Core 10, Blazor Server, Entity Framework Core ve PostgreSQL kullandım. Rol tabanlı yetkilendirme, Docker Compose ve GitHub Actions dağıtım yapısının parçaları.</p>
-<p>Portfolyo örnekleri sentetiktir. Doğrulanmış verimlilik, tasarruf veya ROI yüzdesi bulunmadığı için nicel başarı iddiası eklenmemiştir.</p>
+<p>İş akışlarını görev ekranları ve kullanıcı yetkileriyle birleştirdim. Teknik temel ASP.NET Core 10, Blazor Server, C#, Entity Framework Core ve PostgreSQL. Uygulamayı Ubuntu sunucuda Docker Compose ile çalıştırılabilecek şekilde hazırlıyorum.</p>
+<h4>Kapsam ve sınırlar</h4>
+<p>3B Dijital İkiz görünümü, iş emri, silo ve blok kayıtlarını mekânsal bir arayüzde gösteriyor. Mevcut sürüm PLC veya sensörlerden canlı veri alan fiziksel bir fabrika simülasyonu değil; makine telemetrisi ve fiziksel konum takibi ileri aşama geliştirme alanları.</p>
+<p>Portfolyo örnekleri sentetiktir. Gerçek fabrika verisi, doğrulanmış tasarruf, üretim artışı veya gerçekleşmiş ROI sonucu paylaşılmamaktadır.</p>
 </div>
 </details>
 <div aria-label="ROTA proje dosyaları" class="project-actions"><a class="project-action" href="assets/projects/reports/rota-portfolio-case-study.md" download>Vaka çalışmasını indir <span class="file-ext">MD</span></a></div>
